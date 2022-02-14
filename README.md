@@ -1,13 +1,13 @@
 # DAW2
 Feines 2021-22
  ---
- # [DUAL](https://github.com/paurigine/DAW1/tree/main/firebase)
- ## Ex001/
- # [HTML](https://github.com/paurigine/DAW1/tree/main/firebase)
+ # [HTML](https://github.com/paurigine/DAW2/tree/main/html)
  ## Ex012/
- # [JAVASCRIPT & JQERY](https://github.com/paurigine/DAW1/tree/main/firebase)
+ # [JAVASCRIPT & JQERY](https://github.com/paurigine/DAW2/tree/main/jscript)
  ## Ex012/
- # [NODE](https://github.com/paurigine/DAW1/tree/main/firebase)
+ # [NODE](https://github.com/paurigine/DAW2/tree/main/node)
  ## Ex012/
  ---
+ # [PHP](https://github.com/paurigine/DAW2/tree/main/php)
+ ## Ex001/
 
