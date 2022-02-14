@@ -1,0 +1,23 @@
+extends nav.pug
+block nav
+  .container.mt-5
+    .row
+      .offset-2.col-8.p-3.mb-5.rounded
+        h2.text-dark Presupuesto
+          .container.mt-5 
+              hr
+              .row.col-12
+                  h1.text-danger Seguro a terceros
+              .row.container
+                  h1.text-white.bg-danger.text-right.col-12.rounded #{tercers}€
+              hr
+              .row
+                  h1.text-danger Seguro a todo riesgo (Franquicia 200€)
+              .row.container
+                  h1.text-white.bg-danger.text-right.col-12.rounded #{tercers+200}€
+              hr 
+              .row
+                  h1.text-danger Seguro a todo riesgo
+              .row.container
+                  h1.text-white.bg-danger.text-right.col-12.rounded #{tercers+500}€
+              hr

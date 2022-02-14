@@ -1,0 +1,18 @@
+input {
+    font-size:30px;
+    height: 4rem;
+    width: 10%;
+    text-align: right;
+}
+td{
+    width: 15%;
+}
+table{
+    margin-left: 10%;
+    width: 45%;
+    height: 45%;
+    border: 1px solid black;
+}
+img{
+    height: 10%;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Selectors CSS i jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        	$(document).ready(function(){
+        		$("p:last-of-type").hide();
+        		$("p:first-of-type").hide();   
+        		$("ul li:nth-child(odd)").hide();   
+        		$(".nice").hide(); 
+        	});
+        </script>
+    </head>
+    <body>
+        <p id="principal">Phasellus dignissim tortor quis augue mollis auctor. Quisque at pellentesque ex. Phasellus lobortis commodo nisi, eu tempor enim posuere vitae. Donec ultrices, velit nec placerat tincidunt, ante nisl lobortis lorem, id fringilla orci neque ut felis. Nulla accumsan augue vel neque pellentesque, eu porta libero placerat. Phasellus finibus felis et nunc vehicula porttitor. Vestibulum tortor leo, posuere sit amet auctor sit amet, eleifend sit amet orci. Etiam ultrices justo in ultricies venenatis. Proin elit augue, feugiat eget metus in, feugiat hendrerit mauris.</p>
+
+        <p>Suspendisse suscipit nisi at tellus vestibulum maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam faucibus vehicula molestie. Morbi pretium risus id magna mattis, eget imperdiet <span>mauris commodo</span>. Mauris in lectus tristique, finibus nunc in, eleifend lectus. Suspendisse vitae lectus a erat scelerisque eleifend nec at justo. Quisque faucibus, eros sodales facilisis tempor, <span class="nice"> orci libero </span>efficitur justo, id rhoncus massa turpis vel velit. Donec pulvinar scelerisque tempor. Mauris quis convallis odio. Nullam tempus condimentum diam sit amet efficitur.</p>
+
+        <p>Ut magna sem, porta id ligula vitae, tincidunt gravida magna. Fusce lobortis consequat posuere. Nulla ut justo ex. Nunc eleifend aliquam enim, vitae efficitur augue feugiat vel. Praesent rutrum eget turpis id ullamcorper. Vestibulum molestie, urna at tristique tristique, ex tellus convallis turpis, a fringilla metus neque sed nunc. Curabitur <span class=nice">risus tortor</span>, lobortis sit amet leo et, pulvinar iaculis arcu. Vivamus consequat consectetur mi non sagittis. Praesent nec ante metus. Vivamus condimentum consectetur ligula. Duis et nulla ligula. Quisque at quam sem.</p>
+
+        <p>Vivamus nec justo vitae massa dictum fringilla. Nam iaculis eu mi at sollicitudin. Pellentesque vulputate tempus diam, nec consectetur est viverra eget. Fusce commodo sed massa dignissim iaculis. <span>Donec in felis bibendum</span>, aliquam velit vitae, porta dolor. Duis et tellus id lacus vehicula mollis. Phasellus ut lacinia tellus, ut luctus felis. Etiam id viverra ipsum. Aenean consequat <span class="nice">pellentesque ipsum</span>, et sagittis tellus tincidunt et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas nec elit vitae porta.</p>
+
+        <ul> Llista 1
+        	<li> Primer item </li>
+        	<li> Segon item </li>
+        	<li> Tercer item </li>
+        	<li> Quart item </li>
+        	<li> Cinque item </li>
+        </ul>
+
+        <ol> Llista 2
+        	<li> Primer item </li>
+        	<li class="nice"> Segon item </li>
+        	<li> Tercer item </li>
+        	<li class="nice"> Quart item </li>
+        	<li> Cinque item </li>
+        </ol>
+    </body>
+</html>

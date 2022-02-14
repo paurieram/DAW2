@@ -1,0 +1,311 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css?family=Gugi|Dosis');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: Dosis;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #000;
+}
+
+ .contenedor {
+	position: absolute;
+	top: 80px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	padding-top: 100px;
+	background-color: #566573;
+	color: #566573;
+	display: none;
+}
+
+h3 {
+	color: #273746;
+	text-align: center;
+}
+
+#acceso {
+	display: block;
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #AED6F1;
+	height: 100%;
+	width: 100%;
+}
+
+#hucha {
+	position: absolute;
+	z-index: 2;
+	right: 0px;
+	bottom: 50px;
+	width: 250px;
+}
+
+#moneda {
+	position: absolute;
+	z-index: 1;
+	top: -200px;
+	right: 85px;
+	width: 80px;
+}
+
+nav {
+	background-color: #273746;
+	border-bottom: 5px solid #566573;
+	height: 80px;
+	overflow: hidden;
+}
+
+nav ul {
+	display: block;
+	list-style-type: none;
+}
+
+nav li {
+	float: left;
+	height: 80px;
+	line-height: 80px;
+	vertical-align: center;
+	text-align: center;
+	width: 15%;
+	font-family: Gugi;
+	font-size: 1.4em;
+}
+
+#menu {
+	display: none;
+	float: right;
+	height: 50px;
+	margin: 15px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #273746;
+}
+
+.navOption {
+	color: #566573;
+}
+
+.navOptionHover {
+	background-color: #566573;
+	color: #273746;
+	cursor: pointer;
+}
+
+#logo {
+	height: 100%;
+	float: left;
+	margin: 0px 50px;
+}
+
+#formulario2{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.formulario {
+	width: 380px;
+	margin: auto;
+	background-color: #fff;
+	padding: 20px;
+	border-bottom: 5px solid #566573;
+	overflow: hidden;
+}
+
+.formulario label {
+	visibility: hidden;
+	font-style: italic;
+	font-size: 1em;
+	color: #273746;
+}
+
+.formulario input {
+	display: block;
+	font-size: 1.4em;
+	color: #273746;
+	width: 100%;
+	height: 50px;
+	margin: 2px 0px 20px 0px;
+	padding: 5px;
+	border: 0px;
+	border-bottom: 1px solid #273746;
+	outline: none;
+	background-color: #fff;
+}
+
+.formulario input::placeholder {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+.formulario button {
+	float: right;
+	padding: 5px;
+	border: 0px;
+	font-size: 1.2em;
+	background-color: #273746;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	margin: 20px 0px;
+}
+
+.formulario a {
+	float: left;
+	padding: 5px;
+	font-size: 1em;
+	text-decoration: none;
+	margin: 20px 0px;
+	color: #3498DB;
+}
+
+.formulario a:hover {
+	font-weight: bold;
+}
+
+#basePuzzle {
+	position: absolute;
+	z-index: 0;
+	left: calc(50% - 350px);
+	top: calc(50% - 240px);
+	background-image: url(../images/puzzle/base.jpg);
+	background-repeat: no-repeat;
+	background-size: contain; 
+	filter: grayscale(80%);
+	opacity: 0.8;
+	margin: auto;
+	width: 700px;
+	height: 353px;
+}
+
+.piezaPuzzle {
+	position: absolute;
+	z-index: 2;
+}
+
+.panel {
+	display: table;
+	position: absolute;
+	z-index: 1;
+	left: calc(50% - 350px);
+	top: calc(50% - 240px);
+	margin: auto;
+	width: 700px;
+	height: 353px;
+	border-collapse: collapse;
+}
+
+.fila {
+	display: table-row;
+}
+
+.casilla {
+	display: table-cell;
+	width: 175px;
+	height: 88px;
+	border: 1px dashed #666;
+	opacity: 0.4;
+	background-color: #E74C3C;
+}
+
+#barraHerramientas {
+	margin: auto;
+	padding: 0px;
+	width: 1000px;
+	overflow: hidden;
+}
+
+#barraHerramientas li {
+	float: left;
+	width: 126px;
+	height: 50px;
+	margin: 5px 20px;
+	padding: 5px;
+	border-radius: 10px;
+	border: 3px solid #fff;
+	background-color: #273746;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-origin: content-box, padding-box;
+}
+
+#linea, #rectangulo, #elipse, #dibujo, #borrar {
+	cursor: pointer;
+}
+
+#linea {
+	background-image: url(../images/line.png);
+}
+
+#rectangulo {
+	background-image: url(../images/rectangle.png);
+}
+
+#elipse {
+	background-image: url(../images/ellipse.png);
+}
+
+#dibujo {
+	background-image: url(../images/draw.png);
+}
+
+#borrar {
+	background-image: url(../images/erase.png);
+}
+
+#color {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	outline: 0px;
+	background-color: #273746;
+}
+
+#pizarra {
+	display: block;
+	margin: auto;
+	border: 3px solid #273746;
+	background-color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+	#hucha, #moneda {
+		display: none;
+	}
+
+	nav ul {
+		display: none;
+		background-color: #273746;
+		position: absolute;
+		top: 80px;
+		left: 0px;
+		z-index: 4;
+		width: 100%;
+	}
+
+	nav li {
+		width: 100%;
+	}
+
+	#menu {
+		display: inline;
+	}
+
+}

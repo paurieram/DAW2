@@ -1,0 +1,10 @@
+extends nav.pug
+block nav
+  .container.mt-5
+      .offset-1.col-8
+          h1 Nuevo Parte 
+          hr
+          form(action="/partes", method="post", enctype="multipart/form-data").bg-danger.rounded.container.p-3
+              h4.text-white Seleciona un archivo  en formato pdf 
+              input.p-2.bg-white.rounded.flex-row-reverse.col-12(type="file", name="pdf")
+              input(type="submit", value="Enviar").row.offset-11

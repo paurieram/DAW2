@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        //posicionar cubs
+        $("#random").css("top", rng(0,$("body").outerHeight(false)));
+        $("#random").css("left", rng(0,$("body").outerWidth(false)));
+        $("#manual").css("top", rng(0,$("body").outerHeight(false)));
+        $("#manual").css("left", rng(0,$("body").outerWidth(false)));
+        //moure cubs
+        $(document).keydown(function(e) { 
+          if (e.keyCode == 37){
+            if (parseInt($("#manual").css("left").replace("px",""))-40 >= 0){
+              $("#manual").css("left", "-=40");
+              mrng();
+            }
+          }else if(e.keyCode == 38){
+            if (parseInt($("#manual").css("top").replace("px",""))-40 >= 0){
+              $("#manual").css("top", "-=40");
+              mrng();
+            }
+          }else if(e.keyCode == 39){
+            if (parseInt($("#manual").css("left").replace("px",""))+40 < $("body").outerWidth(false)){
+              $("#manual").css({"left": "+=40"});
+              mrng();
+            }
+          }else if(e.keyCode == 40){
+            if (parseInt($("#manual").css("top").replace("px",""))+40 < $("body").outerHeight(false)){
+              $("#manual").css({"top": "+=40"});
+              mrng();
+            }
+          }
+        });
+        function mrng(){
+          $("#random").css("top", rng(0,$("body").outerHeight(false)));
+          $("#random").css("left", rng(0,$("body").outerWidth(false)));
+        }
+        //amagar i mostrar
+        $("#random").click(function() { 
+          $("#random").hide();
+        });
+        $("#manual").click(function() { 
+          $("#random").show();
+        });
+      });
+      //generar posicio aleatoria
+      function rng(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+    </script>
+</head>
+<body>
+  <style>
+    *{
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    #random{
+      background-color: red;
+      width: 40px;
+      height: 40px;
+    }
+    #manual{
+      background-color: green;
+      width: 40px;
+      height: 40px;
+    }
+    body, html{
+      height: 100%;
+      width: 100%;
+    }
+    div{
+      position:absolute;
+    }
+  </style>
+    <div id="random"></div>
+    <div id="manual"></div>
+</body>
+</html>

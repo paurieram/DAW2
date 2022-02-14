@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#red").click(function(){
+            $("#div1").width($("#div1").width()/2)
+            $("#div2").width($("#div2").width()/2)
+        });
+        $("#aum").click(function(){
+            $("#div1").width($("#div1").width()*2)
+            $("#div2").width($("#div2").width()*2)
+        });
+      });
+    </script>
+
+    <style>
+    #div1 {
+      border: 1px solid #ef9a9a;
+      background-color: #ffebee;
+    }
+
+    #div2 {
+      border: 2px solid #9fa8da;
+      background-color: #e8eaf6;
+    }
+    </style>
+  </head>
+  <body>
+
+    <img id="div1" src="imatge.jpg" alt="imatge.jpg">
+    <br>
+    <img id="div2" src="imatge.jpg" alt="imatge.jpg">
+    <br>
+    <button id="aum">aumenta les dimensions del div</button>
+    <button id="red">redueix les dimensions del div</button>
+
+</body>
+</html>

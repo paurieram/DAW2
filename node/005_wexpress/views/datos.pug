@@ -1,0 +1,20 @@
+doctype html
+head
+  meta(charset='utf-8')
+  title Productos
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+.container.mt-5
+  .row
+    .col-4.offset-2.p-3.bg-primary
+      h1 NUEVO PRODUCTO
+    .col-4.p-3.bg-dark.text-white
+        p Producto: #{producto}
+        p Precio: #{precio} €
+        if iva>100
+            p.text-danger Precio con iva: #{iva} €
+        else 
+            p.text-success Precio con iva: #{iva} €
+        p Categoria: #{categoria}

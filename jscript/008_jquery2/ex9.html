@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("button").click(function(){
+          $("#div1").text("Amplada: "+$("#div1").height()+"Altura: "+$("#div1").width());
+          $("#div2").text("Amplada: "+$("#div2").height()+"Altura: "+$("#div2").width());
+        });
+      });
+    </script>
+
+    <style>
+    #div1 {
+      height: 100px;
+      width: 300px;
+      padding: 10px;
+      margin: 3px;
+      border: 1px solid #ef9a9a;
+      background-color: #ffebee;
+    }
+
+    #div2 {
+      height: 200px;
+      width: 200px;
+      padding: 10px;
+      margin: 5px;
+      border: 2px solid #9fa8da;
+      background-color: #e8eaf6;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div id="div1"></div>
+    <br>
+    <div id="div2"></div>
+    <br>
+    
+    <button>mostra les dimensions del div</button>
+
+</body>
+</html>

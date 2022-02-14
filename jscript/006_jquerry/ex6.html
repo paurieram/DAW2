@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Manipulació del DOM</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        	$(document).ready(function(){
+        		$("#enviar").bind( "click", function() {
+                    let text = "<b>nom</b>: "+$("#nom").val()
+                    text += "<br><b>cognom</b>: "+$("#cognom").val()
+                    text += "<br><b>email</b>: "+$("#email").val()
+                    $(".resposta").html("<p>"+text+"<p>")
+                });
+        	});
+        </script>
+    </head>
+    <body>
+        <p class="resposta"></p>
+        <form>
+            <input type="text" name="nom" id="nom" placeholder="El teu nom...">
+            <input type="text" name="cognom" id="cognom" placeholder="El Teu cognom">
+            <input type="email" name="email" id="email" placeholder="nom@domini.es">
+            <button type="button" id="enviar">Enviar</button>
+        </form>
+    </body>
+</html>

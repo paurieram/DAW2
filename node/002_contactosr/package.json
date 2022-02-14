@@ -1,0 +1,18 @@
+{
+  "name": "contactos",
+  "version": "1.0.0",
+  "description": "Agenda de contactos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rubén Martínez Castilla",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.12",
+    "pug": "^2.0.4"
+  }
+}

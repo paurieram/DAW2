@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>INSERT COIN</title>
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+		<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+		<nav>
+			<a href="index.html">
+				<img src="images/logo.png" id="logo" alt="logo" />
+			</a>
+			<ul>
+				<li class="navOption">Acceso</li>
+				<li class="navOption">Puzzles</li>
+				<li class="navOption">Pictionary</li>
+				<li class="navOption">Retrogames</li>
+			</ul>
+			<img src="images/menu-button.png" id="menu" alt="menu" />
+		</nav>
+		<div class="contenedor" id="acceso">
+			<img src="images/piggy-bank.svg" id="hucha" alt="hucha" />
+			<img src="images/coin.svg" id="moneda" alt="moneda" />
+			<div class="formulario" id="formulario1">
+				<form>
+					<label for="username" id="label-username">Nombre de usuario</label>
+					<input type="text" name="username" id="username" placeholder="Nombre de usuario" />
+					<label for="pass" id="label-pass">Contraseña de acceso</label>
+					<input type="password" name="pass" id="pass" placeholder="Contraseña de acceso" />
+					<button id="entrar">Entrar</button>
+					<a id="nuevo">Soy nuevo por aquí</a>
+				</form>
+			</div>
+			<div class="formulario" id="formulario2">
+				<form>
+					<label for="">n</label>
+					<input type="text" name="reg-username" id="reg-username" placeholder="Nombre de usuario" />
+					<label for="">n</label>
+					<input type="email" name="reg-email" id="reg-email" placeholder="Correo electronico" />
+					<label for="">n</label>
+					<input type="password" name="reg-pass" id="reg-pass" placeholder="Contraseña de acceso" />
+					<label for="">n</label>
+					<input type="password" name="reg-pass" id="reg-pass-conf" placeholder="Contraseña de acceso" />
+					<label for="">n</label>
+					<input type="checkbox" name="terms" id="terms" style="width: 20px; height: 15px; display: inline;"><span>Terminos de uso</span>
+					<br><span id="error" style="color: red; padding-left: 5%;"></span>
+					<button id="reg-entrar">Registrarse</button>
+				</form>
+			</div>
+		</div>
+		<div class="contenedor" id="puzzles">
+			<div id="basePuzzle"></div>
+			<div class="panel">
+				<div class="fila">
+					<div class="casilla" id="casilla1"></div>
+					<div class="casilla" id="casilla2"></div>
+					<div class="casilla" id="casilla3"></div>
+					<div class="casilla" id="casilla4"></div>
+				</div>
+				<div class="fila">
+					<div class="casilla" id="casilla5"></div>
+					<div class="casilla" id="casilla6"></div>
+					<div class="casilla" id="casilla7"></div>
+					<div class="casilla" id="casilla8"></div>
+				</div>
+				<div class="fila">
+					<div class="casilla" id="casilla9"></div>
+					<div class="casilla" id="casilla10"></div>
+					<div class="casilla" id="casilla11"></div>
+					<div class="casilla" id="casilla12"></div>
+				</div>
+				<div class="fila">
+					<div class="casilla" id="casilla13"></div>
+					<div class="casilla" id="casilla14"></div>
+					<div class="casilla" id="casilla15"></div>
+					<div class="casilla" id="casilla16"></div>
+				</div>
+			</div>
+		</div>
+		<div class="contenedor" id="pictionary">
+			<div id="barraHerramientas">
+				<ul>
+					<li id="linea"></li>
+					<li id="rectangulo"></li>
+					<li id="elipse"></li>
+					<li id="dibujo"></li>
+					<li id="borrar"></li>
+					<li><input type="color" id="color" name="color" /></li>
+				</ul>
+			</div>
+			<canvas id="pizarra" width="1000" height="400"></canvas>
+		</div>
+		</div>
+		<div class="contenedor" id="retrogames">
+			<h3>Retrogames</h3>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script> -->
+		<script type="text/javascript" src="js/jcanvas.min.js"></script>
+		<script type="text/javascript">
+			let mode = null;
+			let posi = null;
+			let posf = null;
+			let mous = false;
+			$(document).ready(function(){
+				$("nav li:nth-child(1)").click(function() {
+					$(".contenedor").fadeOut(100);
+					$("#acceso").fadeIn(100);
+				});
+				$("nav li:nth-child(2)").click(function() {
+					$(".contenedor").fadeOut(100);
+					$("#puzzles").fadeIn(100);
+				});
+				$("nav li:nth-child(3)").click(function() {
+					$(".contenedor").fadeOut(100);
+					$("#pictionary").fadeIn(100);
+				});
+				$("nav li:nth-child(4)").click(function() {
+					$(".contenedor").fadeOut(100);
+					$("#retrogames").fadeIn(100);
+				});
+				$( "li.navOption" ).hover(function() {
+					$( this ).toggleClass( "navOptionHover" );
+				});
+				$("#moneda").animate({top: '+=1000px'}, 4000, function(){
+					$( this ).hide();
+				});
+				$("#username").focus(function() {
+					$("#username").attr("placeholder","");
+					$("#label-username").css("visibility","visible");
+				});
+				$("#username").focusout(function() {
+					if ($("#username").val()==""){
+						$("#username").attr("placeholder","Nombre de usuario");
+						$("#label-username").css("visibility","hidden");
+					}
+				});
+				$("#pass").focus(function() {
+					$("#pass").attr("placeholder","");
+					$("#label-pass").css("visibility","visible");
+				});
+				$("#pass").focusout(function() {
+					if ($("#pass").val()==""){
+						$("#pass").attr("placeholder","Contraseña de acceso");
+						$("#label-pass").css("visibility","hidden");
+					}
+				});
+				$("#nuevo").on("click", function() {
+					$("#formulario2").css("visibility","visible");
+					$("#formulario1").css("visibility","hidden");
+					$("#error").text("");
+				});
+				$("#formulario2").on("submit",function(e) {
+					if ($("#reg-username").val() == ""){
+						$("#reg-username").focus();
+					}else if ($("#reg-email").val() == ""){
+						$("#reg-email").focus();
+					}else if ($("#reg-pass").val() == ""){
+						$("#reg-pass").focus();
+					}else if ($("#reg-pass-conf").val() == ""){
+						$("#reg-pass-conf").focus();
+					}else if ($("#reg-pass").val() != $("#reg-pass-conf").val()){
+						$("#reg-pass").focus();
+					}else if ($("#terms").prop("checked") == false){
+						$("#terms").focus();
+					}else{
+						return;
+					}
+					$("#error").text("Algun dato es erroneo");
+					e.preventDefault();
+					e.stopPropagation();
+				});
+				var ancho = $(document).width() - 200;
+				var alto = $(document).height() - 300;
+
+				for (i = 1; i <= 16; i++) {
+					var posicionX = Math.random() * ancho;
+					var posicionY = (Math.random() * alto);
+
+					var nuevaPiezza = $("<img/>", {
+					    "class" : "piezaPuzzle",
+					    "id" : "piezaPuzzle" + i,
+					    "src" : "images/puzzle/puzzle" + i + ".jpg",
+					    "style" : "top: " + posicionY + "px; left: " + posicionX + "px;"
+					});
+
+					$("#puzzles").append(nuevaPiezza);
+				}
+				$( ".piezaPuzzle" ).draggable()
+				$( ".casilla" ).droppable({
+				drop: function( event, ui ) {
+					num1 = $(this).attr("id").substring(7, 9)
+					num2 = ui.draggable[0].id.substring(11, 13)
+					if (num1==num2){
+						$(this).draggable( 'disable' )
+						$(this).appendTo("#piezaPuzzle"+num1);
+					}
+				}
+				});
+				$("#linea").click(function() {
+					mode = "linea";
+					$("#barraHerramientas li").css("border","3px solid #fff");
+					$("#linea").css("border","3px solid rgb(0, 255, 255)");
+				});
+				$("#rectangulo").click(function() {
+					mode = "rectangulo";
+					$("#barraHerramientas li").css("border","3px solid #fff");
+					$("#rectangulo").css("border","3px solid rgb(0, 255, 255)");
+				});
+				$("#elipse").click(function() {
+					mode = "elipse";
+					$("#barraHerramientas li").css("border","3px solid #fff");
+					$("#elipse").css("border","3px solid rgb(0, 255, 255)");
+				});
+				$("#dibujo").click(function() {
+					mode = "dibujo";
+					$("#barraHerramientas li").css("border","3px solid #fff");
+					$("#dibujo").css("border","3px solid rgb(0, 255, 255)");
+				});
+				$("#borrar").click(function() {
+					$("canvas").clearCanvas();
+				});
+				$("canvas").mousedown(function() {
+					posi = [event.offsetX,event.offsetY];
+					mous = true;
+				});
+				$("canvas").mousemove(function() {
+					if (mous){
+						switch (mode) {
+							case "dibujo":
+								var obj = {
+								strokeStyle: $("#color").val(),
+								strokeWidth: 6,
+								rounded: true
+								};
+								var pts = [posi,[event.offsetX,event.offsetY]];
+								for (var p = 0; p < pts.length; p += 1) {
+								obj['x'+(p+1)] = pts[p][0];
+								obj['y'+(p+1)] = pts[p][1];
+								}
+								$('canvas').drawLine(obj);
+								posi = [event.offsetX,event.offsetY]
+								break;
+						}
+					};
+				})
+				$("canvas").mouseup(function() {
+					mous = false;
+					posf = [event.offsetX,event.offsetY];
+					switch (mode) {
+						case "linea":
+							$('canvas').drawLine({
+							strokeStyle: $("#color").val(),
+							strokeWidth: 6,
+							rounded: true,
+							x1: posi[0],y1: posi[1],
+							x2: posf[0],y2: posf[1]
+							});
+							break;
+						case "rectangulo":
+							$('canvas').drawRect({
+								fillStyle: $("#color").val(),
+								x: posi[0], y: posf[1],
+								width: posf[0]-posi[0],
+								height: posi[1]-posf[1],
+								fromCenter: false
+							});
+							break;
+						case "elipse":
+							$('canvas').drawEllipse({
+								fillStyle: $("#color").val(),
+								x: posi[0], y: posf[1],
+								width: posf[0]-posi[0], 
+								height: posi[1]-posf[1],
+								fromCenter: false
+							});
+							break;
+					}
+				});
+			});
+			$("#menu").click(function() {
+				$("nav ul").slideToggle();
+			})
+		</script>
+	</body>
+</html>

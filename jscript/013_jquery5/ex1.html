@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>9</title>
+    <script>
+      $(document).ready(function(){
+        $("div").click(function() {
+          $("div").find("ul").slideUp();
+          $("div").find("span").text("+");
+          if (!$(this).find("ul").is(":visible")){
+            $(this).find("ul").slideToggle();
+            $(this).find("span").text("-");
+          }
+        });
+      });
+    </script>
+</head>
+<body>
+  <style>
+  ul{
+    display: none;
+    background-color: lightgrey;
+  }
+  div{
+    background-color: lightblue;
+    margin-top: 1px;
+  }
+  </style>
+  <div><span>+</span> TV
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div><span>+</span> Radio
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div><span>+</span> Services
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+	div.container.m-5
+		div.row
+			div.offset-4.col-6
+				h3.text-muted.mb-5 Acceso
+				form.form-horizontal(role="form", action="/usuarios/login", method="post")
+					div.form-group
+						input.form-control.input-lg.panel-primary#username(type="text", name="username", placeholder="nombre de usuario", required)
+					div.form-group
+						input.form-control.input-lg.panel-primary#pass(type="password", name="pass", placeholder="introduce la contraseña", required)
+					div.form-group.text-right.mt-5
+						button.btn.btn-primary(type="submit") Entrar
+				if(error)
+					div.alert.alert-danger #{error}

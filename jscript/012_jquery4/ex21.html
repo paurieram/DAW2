@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#2").click(function () { 
+          $("#2").fadeOut();
+        });
+        $("#3").click(function () { 
+          $("#3").fadeToggle();
+        });
+        $("#4").click(function () { 
+          $("#4").fadeTo(400,0.5);
+        });
+        $("#5").click(function () { 
+          $("#5").hide();
+        });
+        $("#7").click(function () { 
+          $("#7").toggle();
+        });
+        $("#8").click(function () { 
+          $("#8").fadeOut(400).fadeIn(400).hide(400).show(400).toggle(400).fadeToggle(400).fadeTo(400,0.5);
+        });
+      });
+    </script>
+</head>
+<body>
+  <img class="bordeImatge" id="2" src="1.jpg" alt="img" width="385" height="260"><br>
+  <img class="bordeImatge" id="3" src="1.jpg" alt="img" width="385" height="260"><br>
+  <img class="bordeImatge" id="4" src="1.jpg" alt="img" width="385" height="260"><br>
+  <img class="bordeImatge" id="5" src="1.jpg" alt="img" width="385" height="260"><br>
+  <img class="bordeImatge" id="7" src="1.jpg" alt="img" width="385" height="260"><br>
+  <img class="bordeImatge" id="8" src="1.jpg" alt="img" width="385" height="260"><br>
+</body>
+</html>

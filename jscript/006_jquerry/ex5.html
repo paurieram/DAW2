@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        	$(document).ready(function(){
+                $("p:nth-child(odd)").addClass("senar");
+                $("p:nth-child(even)").addClass("parell");
+                $(".senar").text("Paràgraf senar");
+                $(".parell").text("Paràgraf parell");
+        	});
+        </script>
+    </head>
+    <body>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </body>
+</html>

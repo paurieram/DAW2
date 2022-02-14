@@ -1,0 +1,65 @@
+table, td, th{
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+    width: 500px;
+    height: 500px;
+    margin:auto;
+    border: 1px solid ghostwhite;
+    text-align: center;
+}
+td:nth-child(1){
+    background-color: white;
+}
+tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even){
+    background-color: grey;
+}
+th{
+    border:none;
+}
+tr{
+    display: flex;
+}
+table td ,table th{
+    width: 45px;
+    height: 45px;
+}
+tr:nth-child(3) td{
+background-image: url("./img/peoblanc.png");
+}
+tr:nth-child(2) td:nth-child(9),tr:nth-child(2) td:nth-child(2){
+    background-image: url("./img/torreblanc.png");
+}
+tr:nth-child(2) td:nth-child(8),tr:nth-child(2) td:nth-child(3){
+    background-image: url("./img/cavallblanc.png");
+}
+tr:nth-child(2) td:nth-child(7),tr:nth-child(2) td:nth-child(4){
+    background-image: url("./img/alfilblanc.png");
+}
+tr:nth-child(2) td:nth-child(6){
+    background-image: url("./img/reiblanc.png");
+}
+tr:nth-child(2) td:nth-child(5){
+    background-image: url("./img/damablanc.png");
+}
+
+
+tr:nth-child(8) td{
+    background-image: url("./img/peonegre.png");
+}
+tr:nth-child(9) td:nth-child(9),tr:nth-child(9) td:nth-child(2){
+    background-image: url("./img/torrenegre.png");
+}
+tr:nth-child(9) td:nth-child(8),tr:nth-child(9) td:nth-child(3){
+    background-image: url("./img/cavallnegre.png");
+}
+tr:nth-child(9) td:nth-child(7),tr:nth-child(9) td:nth-child(4){
+    background-image: url("./img/alfilnegre.png");
+}
+tr:nth-child(9) td:nth-child(5){
+    background-image: url("./img/reinegre.png");
+}
+tr:nth-child(9) td:nth-child(6){
+    background-image: url("./img/damanegre.png");
+}

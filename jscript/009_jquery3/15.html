@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#red").on("click", function(){
+          $("p").css("color", "red");
+        });
+        $("#blue").on("click", function(){
+          $("p").css("color", "blue");
+        });
+        $("#green").on("click", function(){
+          $("p").css("color", "green");
+        });
+        $("#default").on("click", function(){
+          $("p").css("color", "initial");
+        });
+        $("#imag").on("click", function(){
+          $("img").toggleClass("altreImatge");
+        });
+        $("#border").on("click", function(){
+          $("img").toggleClass("bordeImatge");
+        });
+      });
+    </script>
+    <style>
+      .altreImatge{
+        content:url(2.jpg);
+      }
+      .bordeImatge{
+        border:2px solid black;
+      }
+    </style>
+</head>
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <button id="red">vermell</button>
+    <button id="blue">blau</button>
+    <button id="green">verd</button>
+    <button id="default">default</button>
+    <button id="imag">image</button>
+    <button id="border">border</button>
+    <img class="bordeImatge" src="1.jpg" alt="img" width="95" height="65">
+</body>
+</html>

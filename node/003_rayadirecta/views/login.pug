@@ -1,0 +1,20 @@
+extends nav.pug
+block nav
+    .container.mt-5
+        .row
+            .col-6.pt-5.bg-white.text-center
+                img.d-inline-block.align-top.w-100(src='/images/logo.png' alt='logo')
+            .col-4.p-3.mb-5.bg-danger.rounded
+                h1.text-white.text-center Área de clientes
+                form(action='/clientes/login' method='post')
+                    .form-group
+                        label.text-light(for='potencia') Documento de Identidad
+                        input.form-control(type='text' name='user')
+                    .form-group
+                        label.text-light(for='edad') Introduce tu contraseña
+                        input.form-control(type='password' name='password')
+                    .form-group    
+                        if error 
+                            b.text-white #{error}
+                    .form-group.text-right
+                        button.btn.btn-default(type='submit') Entrar

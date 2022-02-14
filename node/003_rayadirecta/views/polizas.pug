@@ -1,0 +1,12 @@
+extends nav.pug
+block nav
+  .container.mt-5
+    .row
+      .offset-2.col-8.p-3.mb-5.rounded
+          h2.text-dark Mis Pólizas
+          .container.mt-5 
+              hr
+              each pol in array
+                .row.container
+                    a(href="/polizas/"+pol style="text-decoration: none;").bg-danger.col-12.rounded: h1.text-white Póliza nº: #{pol}
+                hr

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#1").hover(function () {
+                $("#1").text("Hola, ratolí dintre del div");
+            }, function () {
+                $("#1").text("Adéu, ratolí fora del div");
+            }
+        );
+      });
+    </script>
+</head>
+<body>
+    <div id="1">X</div>
+</body>
+</html>

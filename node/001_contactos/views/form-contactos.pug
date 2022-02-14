@@ -1,0 +1,18 @@
+extends layout.pug
+
+block content
+	div.container.m-5
+		div.row
+			div.offset-4.col-6
+				h3.text-muted.mb-5 Datos del contacto
+				form.form-horizontal(role="form", action="/contactos", method="post")
+					div.form-group
+						input.form-control.input-lg.panel-primary#name(type="text", name="name", placeholder="nombre del contacto", required, value=contacto.name)
+					div.form-group
+						input.form-control.input-lg.panel-primary#phone(type="text", name="phone", placeholder="teléfono del contacto", required, value=contacto.phone)
+					div.form-group
+						input.form-control.input-lg.panel-primary#mail(type="mail", name="mail", placeholder="email del contacto", required, value=contacto.mail)
+					div.form-group
+						input.form-control.input-lg.panel-primary#instagram(type="text", name="instagram", placeholder="cuenta de instagram del contacto", value=contacto.instagram)
+					div.form-group.text-right.mt-5
+						button.btn.btn-primary(type="submit") Guardar

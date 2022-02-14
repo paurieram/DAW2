@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#red").click(function(){
+            $("#div2").width($("#div2").width()/2).height($("#div2").height()/2);
+        });
+
+        $("#aum").click(function(){
+            if (!($("#div2").height()*2>$("#div1").height())){
+                  $("#div2").width($("#div2").width()*2).height($("#div2").height()*2);
+            }
+        });
+      });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #div1 {
+            height: 400px;
+            width: 600px;
+            border: 1px solid #ef9a9a;
+            background-color: #ffebee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #div2 {
+            height: 40px;
+            width: 60px;
+            border: 2px solid #9fa8da;
+            background-color: #e8eaf6;
+            justify-content: center;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+
+    
+    <br>
+    
+    <button id="aum">aumenta les dimensions del div</button>
+    <button id="red">redueix les dimensions del div</button>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.red_salsa{
+    background-color: #f94144;
+}
+.orange_red{
+    background-color: #f3722c;
+}
+.yellow_orange{
+    color: #f8961e;
+}
+.mango_tango{
+    color: #f9844a;
+}
+.maize_craiola{
+    color: #f9c74f;
+}
+.pistacho{
+    color: #90be6d;
+}
+.zemp{
+    color: #43aa8b;
+}
+.cadet_blue{
+    background-color: #4d908e;
+}
+.queen_blue{
+    background-color: #577590;
+}
+.blue{
+    background-color: #277da1;
+}
+.dropdown-item:hover {
+    background-color: #f9c74f;
+}
+ 
+ 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css.css">
+    <title>007</title>
+</head>
+<body id="body" class="container-fluid p-0">
+    <main>
+      <nav id="1" class="d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top fixed-top fixed-left" style="width: 20%; height: 100%; transition: 0.5s;">
+        <a href="/" id="2" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <div class="container-fluid">
+            <a class="navbar-brand">
+              <img id="0" class="col" src="img/logo.png">
+            </a>
+          </div>
+        </a>
+        <hr>
+        <ul class="dropdown-menu text-small shadow" >
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a id="8" class="nav-link link-dark" data-bs-toggle="modal" data-bs-target="#MCursa"><svg class="bi me-2" width="16" height="16"></svg><b id="02">Cursa</b></a> 
+          </li>
+          <li>
+            <a id="3" class="nav-link link-dark active"><svg class="bi me-2" width="16" height="16"></svg>Dashboard</a>
+          </li>
+          <li>
+            <a id="4" class="nav-link link-dark"><svg class="bi me-2" width="16" height="16"></svg>Orders</a>
+          </li>
+          <li>
+            <a id="5" class="nav-link link-dark"><svg class="bi me-2" width="16" height="16"></svg>Products</a>
+          </li>
+          <li>
+            <a id="6" class="nav-link link-dark"><svg class="bi me-2" width="16" height="16"></svg>Customers</a>
+          </li>
+
+        </ul>
+        <hr>
+          <i id="bt" class="fas fa-sun offset-11 fa-2x" onclick="color()"></i>
+      </nav>
+      <a id="7" class="fixed-bottom link-dark" onclick="moveNav()" style="font-size:30px; margin-left: 21%; margin-right: 77%; text-decoration: none;">☰</a> 
+    </main>
+  <script type="text/javascript" src="script.js"></script>
+    <!-- The Modal -->
+    <div class="modal" id="MCursa">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Cursa</h4>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form action="" method="post" class="row">
+                <select name="categoria" id="categoria">
+                  <option value="Prebenjami">Prebenjamí</option>
+                  <option value="Benjami">Benjamí</option>
+                  <option value="Alevi">Aleví</option>
+                  <option value="Infantil">Infantil</option>
+                  <option value="Cadet">Cadet</option>
+                  <option value="Juvenil">Juvenil</option>
+                  <option value="Exalumnes">S. Exalumnes</option>
+                  <option value="Pares">S. Pares/Mares</option>
+                </select>
+                <select name="sexe" id="sexe">
+                  <option value="Femeni">Femeni</option>
+                  <option value="Masculi">Masculi</option>
+                </select>
+                <button type="button" class="btn btn-danger offset-4 col-4 mt-2" data-bs-dismiss="modal">Cancelar</button>
+                <input type="submit" value="Aceptar" class="btn btn-success col-4 mt-2">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

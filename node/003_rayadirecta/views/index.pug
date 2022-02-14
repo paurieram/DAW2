@@ -1,0 +1,43 @@
+extends nav.pug
+block nav
+  .container.mt-5
+    .row
+      .col-6.pt-5.bg-white.text-center
+        img.d-inline-block.align-top.w-100(src='/images/logo.png' alt='logo')
+      .col-4.p-3.mb-5.bg-danger.rounded
+        h1.text-white.text-center Calcula tu precio
+        form(action='/presupuesto' method='post')
+          .form-group
+            label.text-light(for='potencia') Potencia del vehiculo (en CV)
+            input#potencia.form-control(type='number' name='potencia' min='0' value='50' step='10')
+          .form-group
+            label.text-light(for='edad') &iquest;Cu&aacute;ntos a&ntilde;os tienes?
+            input#edad.form-control(type='number' name='edad' min='18' max='100' value='18')
+          .form-group
+            label.text-light(for='sexo') &iquest;Eres hombre o mujer?
+            select#sexo.form-control(name='sexo')
+              option(value='') Selecciona una opci&oacute;n...
+              option(value='H') Hombre
+              option(value='M') Mujer
+          .form-group
+            label.text-light(for='anos') A&ntilde;os de antig&uuml;edad del permiso de conducci&oacute;n
+            input#anos.form-control(type='number' name='anos' min='0' value='0')
+          .form-group
+            label.text-light(for='partes') N&uacute;mero de partes en los &uacute;ltimos 5 a&ntilde;os
+            select#partes.form-control(name='partes')
+              option(value='0') 0 partes
+              option(value='1') 1 parte
+              option(value='2') 2 partes
+              option(value='3') 3 partes
+              option(value='4') 4 o m&aacute;s partes
+          .form-group
+            label.text-light(for='kilometros') &iquest;Cu&aacute;ntos kil&oacute;metros realizas al a&ntilde;o?
+            input#kilometros.form-control(type='number' name='kilometros' min='0' value='1000' step='1000')
+          .form-group
+            label.text-light(for='garaje') &iquest;Estacionas el veh&iacute;culo en garaje?
+            select#garaje.form-control(name='garaje')
+              option(value='N') No
+              option(value='P') En garaje particular
+              option(value='C') En garaje comunitario
+          .form-group.text-right
+            button.btn.btn-default(type='submit') Calcular

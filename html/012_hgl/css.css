@@ -1,0 +1,122 @@
+/* MOBILE */
+@media screen and (max-device-width : 480px) {
+    *{
+        border: solid 1px lightgray;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+    .header{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: purple;
+    }
+    .menu{
+        flex-basis: 20%;
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: orange;
+        order: 2;
+    }
+    .content{
+        width: 100%;
+        flex-basis: 60%;
+        padding: 30% 0% 30% 0%;
+        text-align: center;
+        background-color: red;
+        order: 1;
+        height: 10%;
+    }
+    .ad{
+        flex-basis: 20%;
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: green;
+        order: 3;
+    }
+    .footer{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: blue;
+    }
+}
+/* SMARTPHONE AND TABS */
+@media screen and (min-device-width : 481px) and (max-device-width : 1023px) {
+    *{
+        border: solid 1px grey;
+    }
+    main{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .header{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: blue;
+    }
+    .menu{
+        flex: 49%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: red;
+        order: 2;
+    }
+    .content{
+        flex: 100%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: purple;
+        order: 1;
+    }
+    .ad{
+        flex: 50%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: orange;
+        order: 3;
+    }
+    .footer{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: green;
+    }
+}
+/* DESKTOP */
+@media screen and (min-device-width : 1024px) {
+    *{
+        border: solid 1px black;
+    }
+    main{
+        display: flex;
+    }
+    .header{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: red;
+    }
+    .menu{
+        flex-basis: 20%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: blue;
+    }
+    .content{
+        flex-basis: 60%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: green;
+    }
+    .ad{
+        flex-basis: 20%;
+        padding: 15% 0% 15% 0%;
+        text-align: center;
+        background-color: purple;
+    }
+    .footer{
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        background-color: orange;
+    }
+}

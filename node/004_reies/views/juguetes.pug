@@ -1,0 +1,36 @@
+extends layout.pug
+block content
+	div.container.m-5
+		div.row
+			div.offset-3.col-8
+				h3.text-muted.mb-5.col-9 Lista de Juguetes
+				a.btn.btn-primary.col-3(href="/juguetes/create" width="100px") Crear Nuevo
+				form.form-horizontal(role="form", action="/contactos", method="get")
+					//- div.input-group.mb-3
+					//- 	input.form-control(type="text", name="search", placeholder="Buscar contactos...")
+					//- 	div.input-group-append
+					//- 		button.btn.btn-primary(type="submit") Buscar
+				table.table.table-striped.mt-5
+					thead
+						tr
+							th Nombre
+							th Precio
+							th Peso
+							th Stock
+							th
+					tbody
+						if juguetes 
+							each juguete in juguetes
+								tr
+									td #{juguete.nombre}
+									td #{juguete.precio}
+									td #{juguete.peso}
+									td #{juguete.stock}
+									td
+										a.btn.btn-primary.btn-sm.active.mr-3(href="/juguetes/" + juguete._id + "/edit", role="button", aria-pressed="true")
+											img(src="/images/pencil.svg")
+										a.btn.btn-danger.btn-sm.active(href="/juguetes/" + juguete._id + "/delete", role="button", aria-pressed="true")
+											img(src="/images/trash.svg")
+						else 
+							tr
+								td(colspan="5") No hay juguetes

@@ -1,0 +1,34 @@
+h1{
+    color: lightseagreen;
+}
+h2{
+    color: blue;
+}
+.red{
+    color:red;
+}
+.orange{
+    color:orange;
+}
+.blue{
+    color:blue;
+}
+.green{
+    color:green;
+}
+.pink{
+    color:pink;
+}
+.olive{
+    color:darkolivegreen;
+}
+table, td, th{
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
+body{
+    border: 1px solid black;
+    margin: 2% 27% 0% 27%;
+}

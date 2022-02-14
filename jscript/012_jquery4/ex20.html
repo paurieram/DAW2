@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#1").click(function () { 
+          $("img").fadeIn();
+        });
+        $("#2").click(function () { 
+          $("img").fadeOut();
+        });
+        $("#3").click(function () { 
+          $("img").fadeToggle();
+        });
+        $("#4").click(function () { 
+          $("img").fadeTo(400,0.5);
+        });
+        $("#5").click(function () { 
+          $("img").hide();
+        });
+        $("#6").click(function () { 
+          $("img").show();
+        });
+        $("#7").click(function () { 
+          $("img").toggle();
+        });
+        $("#8").click(function () { 
+          $("img").fadeOut(400).fadeIn(400).hide(400).show(400).toggle(400).fadeToggle(400).fadeTo(400,0.5);
+        });
+      });
+    </script>
+</head>
+<body>
+  <button id="1">FadeIn</button><br>  
+  <button id="2">FadeOut</button><br>
+  <button id="3">fadeToggle</button><br>
+  <button id="4">fadeTo</button><br>
+  <button id="5">hide</button><br>
+  <button id="6">show</button><br>
+  <button id="7">toggle</button><br>
+  <button id="8">all</button><br>
+  <img class="bordeImatge" src="1.jpg" alt="img" width="385" height="260"><br>
+</body>
+</html>
