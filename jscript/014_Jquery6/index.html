@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>9</title>
+    <script>
+        var pts = 0;
+        var ms = 1000;
+        var t = 60;
+        $(document).ready(function(){
+            $("#cnt").text(pts);
+            $("#tim").text(t);
+            setTimeout(() => {
+                sec();
+            }, 1000);
+            mrng();
+            $("#a,#b").click(function (e) { 
+                pts++;
+                $("#cnt").text(pts);
+                ms*=0.9;
+                $(this).hide();
+                setTimeout(() => {
+                    $(this).show();
+                }, 1000);
+            });
+            $("#c").click(function (e) { 
+                pts--;
+                $("#cnt").text(pts);
+                $(this).hide();
+                setTimeout(() => {
+                    $(this).show();
+                }, 1000);
+            });
+            $("#a,#b,#c").hover(function () {
+                $(this).css("cursor", "pointer");
+            }
+            );
+        });
+        function sec(){
+            if (t>0){
+                t--;
+                $("#tim").text(t);
+                setTimeout(() => {
+                    sec();
+                }, 1000);
+                if (t==0){
+                    $("#a,#b,#c").hide();
+                }
+            }
+        }
+        //moure aleatoriament
+        function mrng(){
+            $("#a").css("top", rng(0,$("body").outerHeight(false)));
+            $("#a").css("left", rng(0,$("body").outerWidth(false)));
+            $("#b").css("top", rng(0,$("body").outerHeight(false)));
+            $("#b").css("left", rng(0,$("body").outerWidth(false)));
+            $("#c").css("top", rng(0,$("body").outerHeight(false)));
+            $("#c").css("left", rng(0,$("body").outerWidth(false)));
+            setTimeout(() => {
+                mrng();
+            }, ms);
+        }
+        //generar posicio aleatoria
+        function rng(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+    </script>
+</head>
+<body>
+    <style>
+        *{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        body, html{
+            height: 100%;
+            width: 100%;
+        }
+        h1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        #cnt{
+            top: 40px;
+            left: 1840px;
+        }
+        #tim{
+            top: 40px;
+            left: 40px;
+        }
+        #a{
+            background-color: red;
+        }
+        #b{
+            background-color: green;
+        }
+        #c{
+            background-color: yellow;
+        }
+    </style>
+    <h1 id="cnt"></h1>
+    <h1 id="tim"></h1>
+    <h1 id="a"></h1>
+    <h1 id="b"></h1>
+    <h1 id="c"></h1>
+</body>
+</html>

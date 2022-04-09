@@ -1,0 +1,34 @@
+html {
+    margin-top: 3%;
+}
+
+td {
+    
+    padding: 30px;
+    border: 1px solid black;
+
+}
+
+.calculadoraBasica {
+    position: absolute;
+    margin-left: 30%;
+}
+
+.calculadoraCientifica {
+    position: absolute;
+    margin-top: 5.05%;
+    margin-left: 50%;
+}
+
+.ioperacio {
+    padding: 23.5px;
+    font-size: 20px;
+}
+
+.tdoperacio {
+    padding: 0px;
+}
+
+table {
+   display: inline; 
+}

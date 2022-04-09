@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#codihtml").html("<p> això és un paràgraf <p><table style='width:100%'><tr><th>Firstname</th><th>Lastname</th><th>Age</th></tr></table>");
+        $("#moltbones").text($("#bones").text());
+        $("#bones").text("");
+        $("#pilotes").text($("#miquel").width()+" X "+$("#miquel").height());
+        $("#pilotetes").click(function () {
+          $("#pilotetes").hide();
+        });
+        $("#executa").click(function () {
+          $("#pilotetes").show();
+        });
+        function rng(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+        $("#rand").click(function () {
+          $("#pilotetes").css("top", rng(0,$("body").outerHeight(false)));
+          $("#pilotetes").css("left", rng(0,$("body").outerWidth(false)));
+        });
+      });
+    </script>
+    <style>
+    #pilotetes{
+      position: absolute;
+    }
+    #pilotes {
+      height: 100px;
+      width: 300px;
+      padding: 10px;
+      margin: 3px;
+      border: 1px solid #ef9a9a;
+      background-color: #ffebee;
+    }
+
+    #codihtml {
+      height: 200px;
+      width: 200px;
+      padding: 10px;
+      margin: 5px;
+      border: 2px solid #9fa8da;
+      background-color: #e8eaf6;
+    }
+    button{
+      height:50px;
+      width:100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="pilotes"></div><br>
+    <div id="codihtml"></div><br>
+    <p id="bones">ostres pilotes que en son de bones!</p>
+    <p id="moltbones"></p>
+    <img id="miquel" src="https://www.losreplicantes.com/images/articulos/14000/14541/s5.jpg"/>
+    <img id="pilotetes" src="https://1.bp.blogspot.com/-vqwK6sK-dhA/T27v5YvGzAI/AAAAAAAABGw/ZFFIWnLQ4BI/s1600/IMG_0466.JPG" height="200px" width="200px"/><br>
+    <button id="rand">Moure</button>
+    <button id="executa">Executa els JQUERY</button>
+</body>
+</html>

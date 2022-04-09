@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/control.css">
+</head>
+
+<nav>
+    <div class="vertical-nav bg-white" id="sidebar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div><a href="control.html"><img src="../img/logo.jpg" alt="..." width="230px"></a> </div>
+        </div>
+
+        <a id="8" class="text-dark font-weight-bold text-uppercase px-3 small py-1 mb-0" data-bs-toggle="modal"
+            data-bs-target="#MCursa" style="text-decoration: none;" onclick="croro(true);">Cursa</a><br><br>
+        <p class="text-dark font-weight-bold text-uppercase px-3 small py-1 mb-0">Dades per categoria</p>
+
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('1','2',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Prebenjamí</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('3','4',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Benjamí</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('5','6',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Aleví</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('7','8',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Infantil</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('9','10',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Cadet</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('11','12',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Alumnes Juvenil</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('13','14',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">Exalumnes</i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:get2Alumnes('15','16',true)" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-th-large mr-3 text-black fa-fw">S.Pares/Mares</i>
+                </a>
+            </li>
+        </ul><br>
+
+        <p class="text-dark font-weight-bold text-uppercase px-3 small py-1 mb-0">Desenvolupadors</p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-area-chart mr-3 text-primary fa-fw"></i>
+                    Alumnes de DAW 2
+                </a>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-content p-5" id="content">
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+            class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">
+            Veure menys / Veure més
+        </small></button>
+
+    <div style="float: right;">
+        <input type="text" placeholder="Entra Dorsal" id="dorsal">
+        <button id="submit-button" style="display: none;">Enviar</button>
+        <br><div style="display: none;" id="sh"><b>Enviat:</b><span id="res"></span></div>
+    </div>
+
+    <body>
+        <div class="column">
+            <div class="text-center; float:left; col-12 text-center align-items-center " id="crono">
+            </div>
+        </div>
+            <div class="container" style="background-color: white;text-align: center; " class="crono">
+                <div class="row">
+                    <h3 class="pt-4 col-2 offset-5" style="color: black;text-align: center;  font-size: 25px;padding-bottom: 20px; ">Corredors</h3>
+                    <div class="pt-4 form-check form-switch col-1 offset-1">
+                        <input class="form-check-input" type="checkbox" id="cmasculi" checked>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Masculí</label>
+                    </div>    
+                    <div class="pt-4 form-check form-switch col-1 offset-1">
+                        <input class="form-check-input" type="checkbox" id="cfemeni" checked>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Femení</label>
+                    </div>
+                </div>    
+                <div id="contenttable" style="padding-bottom: 20px;" class="col">
+                    
+                </div>
+                <script src="../js/comptador.js"></script>
+                <script>get2Alumnes('1','2',true)</script>
+<!-- The Modal -->
+<div class="modal" id="MCursa">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Cursa</h4>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form action="dadescontrol.php" method="post" class="row" id="formcategoria">
+                        <select name="categoria" id="categoria">
+                            <option value="1">Prebenjamí</option>
+                            <option value="3">Benjamí</option>
+                            <option value="5">Aleví</option>
+                            <option value="7">Infantil</option>
+                            <option value="9">Cadet</option>
+                            <option value="11">Juvenil</option>
+                            <option value="13">S. Exalumnes</option>
+                            <option value="15">S. Pares/Mares</option>
+                        </select>
+                        <select name="sexe" id="sexe">
+                            <option value="0">Femeni</option>
+                            <option value="1">Masculi</option>
+                            <option value="2">Ambdos</option>
+                        </select>
+                        <button type="button" class="btn btn-danger offset-4 col-4 mt-2"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <input type="button" value="Aceptar" onclick="" class="btn btn-success col-4 mt-2">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

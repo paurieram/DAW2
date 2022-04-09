@@ -1,0 +1,13 @@
+body,nav,footer{
+    background-image: linear-gradient(270deg, #ffff00 0, #f2ff00 10%, #ceff00 20%, #a7ff00 30%, #7bff1c 40%, #41ff38 50%, #00f24a 60%, #00e659 70%, #00dc67 80%, #00d375 90%, #00cc83 100%);
+}
+
+a {
+    text-decoration-color: black;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}

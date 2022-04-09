@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Pg.1</title>
+</head>
+<body>
+    <form action="dades.php" method="post">
+        <h1>Comptar daus (Formularis)</h1>
+        <h3>Escull un nombre de daus (entre 2 i 10) i un color:</h3>
+        <label>Nombre de daus: </label>
+        <input type="number" name="daws" max="10" min="2"><br>
+        <label>Color: </label>
+        <select name="color">
+            <option value="0">...</option>
+            <option value="1">blau</option>
+            <option value="2">vermell</option>
+        </select><br>
+        <label>Elements: </label>
+        <input type="checkbox" name="tito">Títol
+        <input type="checkbox" name="nomb">Nombre de daus seleccionat
+        <input type="checkbox" name="enll">Enllaç al formulari (tornada)
+        <br>    
+        <input type="submit" value="Mostrar">
+        <input type="reset" value="Esborrar">
+    </form>
+</body>
+</html>

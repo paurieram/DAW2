@@ -1,0 +1,91 @@
+
+/* Estilo pagina */
+body {
+    background-image: linear-gradient(270deg, #ffff00 0, #f2ff00 10%, #ceff00 20%, #a7ff00 30%, #7bff1c 40%, #41ff38 50%, #00f24a 60%, #00e659 70%, #00dc67 80%, #00d375 90%, #00cc83 100%);}
+  
+    .vertical-nav {
+        min-width: 17rem;
+        width: 17rem;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s;
+      }
+      
+      .page-content {
+        width: calc(100% - 17rem);
+        float: right;
+        transition: all 0.4s;
+      }
+      
+      /*  toggle  */
+      
+      #sidebar.active {
+        margin-left: -17rem;
+      }
+      
+      #content.active {
+        width: 100%;
+        margin: 0;
+      }
+      
+      @media (max-width: 768px) {
+        #sidebar {
+          margin-left: -17rem;
+        }
+        #sidebar.active {
+          margin-left: 0;
+        }
+        #content {
+          width: 100%;
+          margin: 0;
+        }
+        #content.active {
+          margin-left: 17rem;
+          width: calc(100% - 17rem);
+        }
+      }
+ 
+      .text-uppercase {
+        letter-spacing: 0.1em;
+      }
+      
+      .text-gray {
+        color: #aaa;
+      }
+
+   
+    #screen {
+        font-family: Calibri,Arial;
+        font-weight: 300;
+        font-size: 45px;
+        width: 330px;
+        height: 50px;
+        color: gray;
+        letter-spacing: 3px;
+    }
+
+    /* Cronometro */
+.reloj{
+    float: left;
+    font-size: 20px;
+    line-height: 60px;
+    font-weight: bold;
+    font-family: Courier,sans-serif top 20px;
+}
+
+.boton{
+    width: 100px;
+    position: relative;
+
+}
+.crono{
+    text-align: center;
+
+}
+
+.reloj{
+    text-align: center;
+}

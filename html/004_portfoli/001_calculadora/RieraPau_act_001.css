@@ -5,7 +5,7 @@ body {
     background-color: white;
     margin: 15%;
 }
-div{
+#calc{
     border-radius: 20px;
     border: 3px solid gray;
     margin: 0% 30% 0% 30%;

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Cros</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <img src="http://www.ginebro.cat/web/wp-content/uploads/2017/10/ginebro-logo.png" alt="">
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4" style="margin-top: 7%;">
+                <div class="login-form bg-light mt-4 p-4">
+                    <form action="control.html" method="post" class="row g-3">
+                        <h4>Administrador</h4>
+                        <div class="col-12">
+                            <label>Usuari</label>
+                            <input type="text" name="username" class="form-control" placeholder="Nom usuari">
+                        </div>
+                        <div class="col-12">
+                            <label>Contraseña</label>
+                            <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe"> Recorda la cnotraseña</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark float-end">Entra</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
+        <!-- Copyright -->
+        <div class="text-center p-3" >
+          © 2020 Copyright
+          <a class="text-dark" href="https://www.ginebro.cat/">Ginebro.cat</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
+
+</html>

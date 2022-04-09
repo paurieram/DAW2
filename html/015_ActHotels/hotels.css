@@ -1,0 +1,39 @@
+html {
+    overflow-x: hidden;
+}
+
+.card-hotel {
+    flex: 1 350px ;
+    padding: 2px 5px 2px 5px;
+    margin-top: 10px;
+}
+
+footer{
+    padding: 10px 10px 0 10px;
+    background-color: orange;
+    margin-bottom: 0px;
+
+}
+
+.btn-reserva{
+    width:100%;
+}
+.col-4{
+    text-align: center;
+}
+
+.informacioComFunciona {
+    margin: 0 5%;
+}
+
+img {
+    width: 100%;
+}
+
+.infoHotel2 {
+    margin: 0 20%;
+}
+
+.infoHotel2 h1 {
+    text-align: center;
+}

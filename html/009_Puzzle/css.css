@@ -1,0 +1,21 @@
+input {
+    font-size:30px;
+    height: 4rem;
+    width: 10%;
+    text-align: right;
+}
+td{
+    width: 15%;
+}
+table{
+    position: absolute;
+    transform: scale(20%);
+    margin-top: -55%;
+    margin-left: -45%;
+    width: 45%;
+    height: 45%;
+    border: 1px solid black;
+}
+img{
+    height: 10%;
+}

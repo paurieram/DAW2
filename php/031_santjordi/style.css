@@ -1,0 +1,278 @@
+body, html{
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+}
+#bgi {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    /* height: 50%;
+    width: 50%; */
+    opacity: 0.6;
+
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+/* #bgi{
+    background: transparent url('img/sant-jordi.png') no-repeat center center;
+    height: 50%;
+    width: 50%;
+    margin: 13% 0 0 25% !important;
+    position: absolute;
+    z-index: -1;
+    scale: 1.5;
+    opacity: 0.8;
+} */
+/* *{
+} */
+.inputtext{
+    margin-top: 0.2%;
+    width: 12%;
+}
+.btnsmt{
+    border-radius: 25px;
+    width: 35%;
+    border: 1px solid white;
+    margin: auto;
+}
+.greenyellow{
+    background-image: linear-gradient(to right,#009A93 0%,#AFCA0B 25%,#009A93 50%,#AFCA0B 75%,#009A93 100%);
+    background-size: 400% 100%;
+}
+#botonsAmagats div button {
+    border-radius: 20px;
+    border: 5px solid rgb(0, 0, 0);
+}
+.containerMenu {
+    background-color: white;
+    border-radius: 20px;
+    border: 5px solid rgb(0, 0, 0);
+}
+.containerMenu div form input,
+.containerMenu div form select {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    box-shadow: black !important;
+}
+.containerMenu div form input:focus,
+.containerMenu div form select:focus {
+    border: 2px solid rgb(0, 0, 0) !important;
+    box-shadow: black !important;
+}
+#formform{
+    height:320px !important;
+    /* width: 440px !important; */
+}
+.forn{
+    margin: 5% 0 0 15%;
+}
+
+.formLogin{
+    padding: 1.5rem;
+    margin-top: 10%;
+    border-radius: 10px !important;
+    border: 3px solid rgb(0, 0, 0);
+}
+.yellow {
+    color: #fec20c;
+}
+.red {
+    color: red;
+}
+.grey{
+    color: grey;
+}
+.dropdown-item:hover{
+    background-color: rgb(160, 233, 112) !important;
+}
+/* mobil */
+@media (min-width: 320px) and (max-width: 768px) {
+    #btnvote, #btnupload {
+      display: flex;
+      width: 75% !important;
+      height: 30% !important;
+      margin:2% 0 2% 0;
+      justify-self: center;
+      text-align: center;
+    }
+    #formform{
+        margin-top: 0% !important;
+    }
+    #botonsAmagats div {
+        display:flex;
+        margin-left: 0% !important;
+        justify-content: center;
+        margin-top: 0% !important;
+        padding-top: 0% !important;
+    }
+    #loginForm, .formLogin, .forn, #forgotForm {
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+    }
+    .fa-file-arrow-up{
+        margin-right: 16%;
+    }
+    .containerMenu {
+        width: 100% !important;
+        margin: 0% !important;
+    }
+    td {
+        word-break: break-all !important;
+    }
+    *{
+        font-size: 14px;
+    }
+    #logo{
+        height: 25px !important;
+    }
+    .dropdown{
+        margin-left: 25% !important; 
+    }
+    .formLogin {
+        margin-left: 0% !important;
+    }
+    #links{
+        margin-left: 17%;
+    }
+    /* #bgi{
+        left: -57%;
+    } */
+    b{
+        font-size: 28px; 
+    }
+    #btnupload h1{
+        padding-top: 6%;
+    }
+}
+/* Ipad */
+@media  (min-width: 768px) and (max-width: 992px) {
+    .formLogin {
+        margin-left: 0% !important;
+    }
+    #links{
+        margin-left: 17%;
+    }
+    .dropdown{
+        margin-left: 49% !important; 
+    }
+    #btnvote, #btnupload {
+        display: flex;
+        width: 75% !important;
+        height: 30% !important;
+        margin:2% 0 2% 0;
+        justify-self: center;
+        text-align: center;
+    }
+    *{
+        font-size: 18px;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-size: 18px;
+    }
+    b{
+        font-size: 28px;
+    }
+    #btnupload h1{
+        padding-top: 6%;
+        margin-left: 10%;
+    }
+}
+@media  (max-width: 1199px) and (orientation: landscape) {
+    #btnvote, #btnupload {
+        display: flex;
+        width: 75% !important;
+        height: 30% !important;
+        margin:2% 0 2% 0;
+        justify-self: center;
+        text-align: center;
+    }
+}
+
+/*  */
+@media (max-width: 1200px) {
+    .display {
+        display: none;
+    }
+}
+b{
+    font-weight: 750;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+    html {
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      width: 100vh;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
+footer {
+    /* position: -webkit-sticky;
+    position: sticky; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+.social-footer-icons {
+    list-style-type: none; 
+    margin-bottom: 0;
+}
+li {
+    float: right; 
+    text-align: center; 
+    width: 2em; 
+}
+ul li a .fa-brands,ul li a .fa-solid { 
+    color:grey;
+}
+ul li a i {
+    font-size: 1.25em;
+} 
+ul li a:hover i { 
+    transform: translateY(-20%) !important; 
+    color:green;
+}
+#btnvote:hover, #btnupload:hover {
+    transform: scale(1.05, 1.05) !important;
+}
+#links a:hover{
+    transform: translateY(-20%) !important;
+    color: red;
+}
+nav{
+    height: 70px !important;
+}
+#logo{
+    height: 50px;
+    margin-top: 1%;
+}
+.dropdown{
+    margin-left: 60%; 
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.ftrtxt{
+    font-size: 20px;
+}

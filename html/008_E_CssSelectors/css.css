@@ -1,0 +1,32 @@
+/* 1 */
+*{
+    border: 1px solid blue;
+}
+/* 2 */
+.s2 *{
+    background-color: red;
+}
+/* 3 */
+.s3 + span{
+    background-color: red;
+}
+/* 4. */
+.s4 ~ span{
+    background-color: red;
+}
+/* 5. */
+.s5 :first-child{
+    background-color: red;
+}
+/* 6. */
+.s6 :only-child{
+    background-color: red;
+}
+/* 7. */
+.s7 :last-child{
+    background-color: red;
+}
+/* 8. */
+.s8 :first-of-type{
+    background-color: red;
+}
