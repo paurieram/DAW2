@@ -1,7 +1,6 @@
 let window1;
 let window2;
 let focused;
-let patata = 0;
 $(document).ready(function () {
     $(document).click(function () { 
         let doc = focused.document;
