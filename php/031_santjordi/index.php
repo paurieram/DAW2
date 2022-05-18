@@ -31,7 +31,7 @@ unset($_SESSION["log"]);
         <!-- Form login -->
         <div class="row" id="loginForm">
             <img src="img/sant-jordi.png" alt="sant-jordi" class="col-4 display">
-            <form class="bg-white rounded col-md-9 col-lg-4 col-12 offset-1 mt-5 mb-5 ps-5 pe-5 formLogin" action="redirect/login.php" method="POST">
+            <form class="bg-white rounded col-md-9 col-lg-4 col-12 offset-3 mt-5 mb-5 ps-5 pe-5 formLogin" action="redirect/login.php" method="POST">
                 <div class="mb-3">
                     <b><label for="Usuari" class="form-label mt-1">Usuari</label></b>
                     <input type="email" class="form-control" id="Usuari" name="usr" placeholder="Usuari" aria-describedby="emailHelp">
@@ -50,7 +50,7 @@ unset($_SESSION["log"]);
         <!-- Form oblidat contrasenya -->
         <div class="row" id="forgotForm" style="display: none">
             <img src="img/sant-jordi.png" alt="sant-jordi" class="col-4 display">
-            <form class="bg-white rounded col-md-9 col-lg-4 col-12 offset-1 mt-5 mb-5 ps-5 pe-5 formLogin" id="formform" method="post" action="redirect/send.php">
+            <form class="bg-white rounded col-md-9 col-lg-4 col-12 offset-3 mt-5 mb-5 ps-5 pe-5 formLogin" id="formform" method="post" action="redirect/send.php">
                 <div class="mb-3 mt-5">
                     <b><label for="forgetEmail" class="form-label" style="margin-top: 10%;">Escriu el teu correu electrònic</label></b>
                     <input type="email" class="form-control" id="forgetEmail" name="forgetEmail" placeholder="Correu electrònic" aria-describedby="emailHelp">

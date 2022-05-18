@@ -1,3 +1,4 @@
+let winers = [];
 $(document).ready(function () {
     let votar;
     let pujar;
@@ -5,11 +6,12 @@ $(document).ready(function () {
     let obra;
     let num = 0;
     let maxnum = 0;
-    let winers = [];
     let out = "";
+    let obres = [];
+    let cat = "";
     $.ajax({// ask variables
-        data:  '',
-        url:   'ajx/session.php',
+        data:  {"op": "session"},
+        url:   'ajx/showobra.php',
         type:  'post',
         dataType: 'json',
         async: false,
@@ -17,9 +19,11 @@ $(document).ready(function () {
             votar = response.vots;
             pujar = response.upl;
             accio = response.acc;
+            catvots = response.cat;
             let tmpwiners = response.win;
             for (let index = 0; index < tmpwiners; index++) {
                 winers[index] = false;
+                obres[index] = -1;
             }
         }
     });
@@ -28,17 +32,16 @@ $(document).ready(function () {
         $("#spanLogin").removeClass("alert-success alert-danger");
     }, 3000);
     $(".confirmarBot").click(function() {// confirm votes
-        if (votar > 0){
-            $("#"+obra).removeClass("fa-light").addClass("fa-solid").removeAttr("data-bs-toggle");
-            $("#"+obra).off("click","#"+obra);
-            $.ajax({
-                data:  {"idobra": obra},
-                url:   'ajx/vote.php',
-                type:  'post',
-                dataType: 'html'
-            });
-            votar-1;
-        }
+        $("#"+obra).removeClass("fa-light").addClass("fa-solid").removeAttr("data-bs-toggle");
+        // $("#"+obra).off("click","#"+obra);
+        $.ajax({
+            data:  {"op": "vote","idobra": obra},
+            url:   'ajx/showobra.php',
+            type:  'post',
+            dataType: 'json'
+        });
+        catvots[$("#"+obra).attr("cat")] += 1;
+        $.showtab(num);
     });
     $.hid = function() {// hide windows
         $("#pujarObra").hide();
@@ -100,124 +103,119 @@ $(document).ready(function () {
         });
         $("#ownObres").show();
     });
-    $(".fa-trash-can").click(function () {// send confirmation modal to delete artwork
-        $("#titolmodal2").text("Confirmació de l'eliminació de l'obra '"+ $(this).attr("name") + "'");
-        $("#modalDel").modal("show");
-        $(".confirmarDel").attr("name",$(this).attr("id"))
-        
-    });
     $(".confirmarDel").click(function() {// delete artwork
         $.ajax({
-            data:  {"idobra": $(this).attr("name")},
-            url:   'ajx/delete.php',
+            data:  {"op": "delete","idobra": $(this).attr("name")},
+            url:   'ajx/showobra.php',
             type:  'post',
-            dataType: 'html',
+            dataType: 'json',
             async: false,
             success:  function (response) {
-                window.location.href="menu.php?acc=3";
+                $.showtab(num);
             }
         });
     });
-    $("#o1, #v1").click(function () {// pagination first
+    $("#o1").click(function () {// pagination first
         num=0;
         $.showtab(num);
     });
-    $("#o2, #v2").click(function () {// pagination previous
+    $("#o2").click(function () {// pagination previous
         if (num-5 >= 0){
             num-=5;
             $.showtab(num);
         }
     });
-    $("#o3, #v3").click(function () {// pagination next
+    $("#o3").click(function () {// pagination next
         if (num+5 < maxnum){
             num+=5;
             $.showtab(num);
         }
     });
-    $("#o4, #v4").click(function () {// pagination last
+    $("#o4").click(function () {// pagination last
         num=maxnum-(maxnum%5);
         $.showtab(num);
     });
-    $.clasad = function(votsuser,idusr,selfvote){
+    $.clasad = function(votsuser=0,idusr,selfvote){
         $(".adclas").each(function() {
-            $(this).removeClass("adclas");
-            if (votsuser != false){//no vots (vots)
-                let fnd = false;
-                table.forEach(element => {
-                    if (element.idusuariautor == idusr){//votarse a si mateix
-                        if (!selfvote){//votarse a si mateix (variable)
-                            $(this).addClass("grey fa-solid fa-star-exclamation fa-3x");
-                        //  htm += "<tr><td scope='row'><h2>"+ table[tmp].titolobra +"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='grey fa-solid fa-star-exclamation fa-3x''></i></td></tr>";
-                        }else{
-                            for (let i = 0; i < votsuser.length; i++) {
-                                if(votsuser[i].idobra == "table[tmp].idobra"){//comparar si la obra es del usuari actual esta votada
-                                    $(this).addClass("yellow fa-solid fa-star-sharp fa-3x");
-                                    // htm += "<tr><td scope='row'><h2>"+ table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+ table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+ table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+ table[tmp].idobra+"' name='"+ table[tmp].titolobra+"' class='yellow fa-solid fa-star-sharp fa-3x'></i></td></tr>";
-                                    fnd = true;
-                                    break;
-                                }
-                            }
-                            if (!fnd){
-                                $(this).addClass("yellow fa-light fa-star-sharp fa-3x").attr("data-bs-toggle","modal");
-                                // htm += "<tr><td scope='row'><h2>"+table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='yellow fa-light fa-star-sharp fa-3x' data-bs-toggle='modal'></i></td></tr>";
-                            }
-                        }
-                    }else{
-                        for (let i = 0; i < votsuser.length; i++) {
-                            if(votsuser[i].idobra == "table[tmp].idobra"){//comparar si la obra es del usuari actual esta votada
-                                $(this).addClass("yellow fa-solid fa-star-sharp fa-3x");
-                                // htm += "<tr><td scope='row'><h2>"+ table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+ table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+ table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+ table[tmp].idobra+"' name='"+ table[tmp].titolobra+"' class='yellow fa-solid fa-star-sharp fa-3x'></i></td></tr>";
-                                fnd = true;
-                                break;
-                            }
-                        }
-                        if (!fnd){
-                            $(this).addClass("yellow fa-light fa-star-sharp fa-3x").attr("data-bs-toggle","modal");
-                            // htm += "<tr><td scope='row'><h2>"+table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='yellow fa-light fa-star-sharp fa-3x' data-bs-toggle='modal'></i></td></tr>";
-                        }
+            if ($(this).attr("idaut") == idusr && !selfvote){//obra del autor && votarse a si mateix (variable)
+                $(this).removeClass("adclas").addClass("grey fa-solid fa-star-exclamation fa-3x");
+            }else {
+                for (let i = 0; i < votsuser.length; i++){
+                    if (votsuser[i].idobra == $(this).attr("id")){// obra votada
+                        $(this).removeClass("adclas").addClass("yellow fa-solid fa-star-sharp fa-3x");
                     }
-                });
-            } else{//no vots (no vots)
-                table.forEach(element => {
-                    if (element.idusuariautor == idusr){//votarse a si mateix
-                        if (!selfvote){//votarse a si mateix (variable)
-                            $(this).addClass("grey fa-solid fa-star-exclamation fa-3x");
-                            // htm += "<tr><td scope='row'><h2>"+table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='grey fa-solid fa-star-exclamation fa-3x''></i></td></tr>";
-                        }else{
-                            $(this).addClass("yellow fa-light fa-star-sharp fa-3x").attr("data-bs-toggle","modal");
-                            // htm += "<tr><td scope='row'><h2>"+table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='yellow fa-light fa-star-sharp fa-3x' data-bs-toggle='modal'></i></td></tr>";
-                        }
-                    }else{
-                        $(this).addClass("yellow fa-light fa-star-sharp fa-3x").attr("data-bs-toggle","modal");
-                        // htm += "<tr><td scope='row'><h2>"+table[tmp].titolobra+"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='' data-bs-toggle='modal'></i></td></tr>";
-                    }
-                });
+                }
+            }
+            if ($(this).hasClass("adclas")){
+                if (catvots[cat] < votar){
+                    $(this).removeClass("adclas").addClass("yellow fa-light fa-star-sharp fa-3x").attr("data-bs-toggle","modal").css("cursor", "pointer");
+                }else{
+                    $(this).removeClass("adclas").addClass("yellow fa-light fa-star-sharp fa-3x");
+                }
             }
         });
     }
+    $("#all").change(function () {// show tables
+        $.showtab(num);
+    });
     $.showtab = function(num) {
+        cat = $("#all option:selected").val();
         if (out == "#myobrestable"){// pagination from user artwork
-            let tmp = num;
             let htm = "";
             if (maxnum > 0){
                 htm += "<table class='table mb-5'><th class='col'><h2><b>Títol</b></h2></th><th class='col'><h2><b>Categoria</b></h2></th><th class='col'><h2><b>Obra</b></h2></th><th class='col'><h2><b>Accions</b></h2></th>";
-                for (tmp; tmp != (num+5); tmp++) {
-                    if (typeof table.data[tmp] !== 'undefined') {
-                        htm += "<tr><td scope='row'><h2>"+table.data[tmp].titolobra+"</h2></td><td scope='row'><h2>"+table.data[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table.data[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table.data[tmp].idobra+"' name='"+table.data[tmp].titolobra+"' class='fa-regular fa-trash-can fa-3x' style='cursor: pointer;'></i></td></tr>";  
-                    }
+                for (let tmp = num; tmp != (num+5) && tmp < table.data.length; tmp++) {
+                    htm += "<tr><td scope='row'><h2>"+table.data[tmp].titolobra+"</h2></td><td scope='row'><h2>"+table.data[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table.data[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table.data[tmp].idobra+"' name='"+table.data[tmp].titolobra+"' class='fa-regular fa-trash-can fa-3x' style='cursor: pointer;'></i></td></tr>";
                 }
                 htm +="</table>";
             }else{
                 htm += "<h2 class='offset-3 my-5'>Encara no tens cap obra publicada!</h2>";
             }
             $(out).html(htm);
-        }else { // pagination from all user artworks (NOT WORKING)
+            $(".fa-trash-can").click(function () {// send confirmation modal to delete artwork
+                $("#titolmodal2").text("Confirmació de l'eliminació de l'obra '"+ $(this).attr("name") + "'");
+                $("#modalDel").modal("show");
+                $(".confirmarDel").attr("name",$(this).attr("id"));
+            });
+        }else { // pagination from all user artworks
             let htm = "";
             let votsuser = false;
             let idusr;
             let selfvote;
-            if (maxnum > 0){
-                htm += "<table class='table my-5'><th class='col'><h2><b>Títol</b></h2></th><th><h2 class='col'><b>Categoria</b></h2></th><th><h2 class='col'><b>Obra</b></h2></th><th><h2 class='col'><b>Vot</b></h2></th>";
+            $.ajax({
+                data:  {"op": "resxcat","idc": cat},
+                url:   'ajx/showobra.php',
+                type:  'post',
+                dataType: 'json',
+                async: false,
+                success:  function (response) {
+                    result = response.result;
+                    resdat = response.data;
+                    if (result){
+                       $("#publicar").attr("disabled", true).removeClass("btn-outline-danger").addClass("btn-outline-secondary");
+                    }else{
+                        $("#publicar").removeAttr("disabled").removeClass("btn-outline-secondary").addClass("btn-outline-danger");
+                    }
+                }
+            });
+            if (result){
+                htm += "<table class='table mb-5'><th class='col'><h2><b>Títol</b></h2></th><th><h2 class='col'><b>Obra</b></h2></th><th><h2 class='col'><b>Posició</b></h2></th>";
+                let atmp = [];
+                resdat.forEach(winers => {
+                    table.forEach(all => {
+                        if (all.idobra == winers.idobra){
+                            atmp[winers.posicio] = "<tr><td scope='row'><h2>"+ all.titolobra +"</h2></td><td class='tdTable'><a href='"+all.nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i class='fa-solid fa-square-"+winers.posicio+" fa-3x'></i></td></tr>";
+                        }
+                    });
+                });
+                atmp.forEach(element => {
+                    htm += element;
+                });
+                htm += "</table>";
+                $(out).html(htm);
+            }else{
+                let tmp = false;
+                htm += "<table class='table mb-5'><th class='col'><h2><b>Títol</b></h2></th><th><h2 class='col'><b>Categoria</b></h2></th><th><h2 class='col'><b>Obra</b></h2></th><th><h2 class='col'><b>Vot</b></h2></th>";
                 $.ajax({
                     data:  {"op": "votsusr"},
                     url:   'ajx/showobra.php',
@@ -225,68 +223,38 @@ $(document).ready(function () {
                     dataType: 'json',
                     async: false,
                     success:  function (response) {
-                        // console.log(response);
                         votsuser = response.data;
                         idusr = response.idusr;
                         selfvote = response.selfvote;
                     }
                 });
-                for (let tmp = num; tmp != (num+5) && tmp < table.length; tmp++) {
-                    htm += "<tr><td scope='row'><h2>"+ table[tmp].titolobra +"</h2></td><td class='tdTable'><h2>"+table[tmp].nomcategoria+"</h2></td><td class='tdTable'><a href='"+table[tmp].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+table[tmp].idobra+"' name='"+table[tmp].titolobra+"' class='adclas'></i></td></tr>";
+                table.forEach(all => {
+                    if (all.idcategoriaobra == cat){
+                        tmp = true;
+                        htm += "<tr><td scope='row'><h2>"+ all.titolobra +"</h2></td><td class='tdTable'><h2>"+all.nomcategoria+"</h2></td><td class='tdTable'><a href='"+all.nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><i id='"+all.idobra+"' name='"+all.titolobra+"' idaut='"+all.idusuariautor+"' cat='"+all.idcategoriaobra+"' class='adclas'></i></td></tr>";
+                    }
+                });
+                if (tmp == false){
+                    htm = "<h2 class='offset-1 my-5'>Encara no hi ha cap obra publicada! :´(</h2>";
+                    $(out).html(htm);
+                }else{
+                    htm += "</table>";
+                    $(out).html(htm);
+                    $.clasad(votsuser,idusr,selfvote);
+                    $.createVote();
                 }
-                htm += "</table>";
-                $(out).html(htm);
-                $.clasad(votsuser,idusr,selfvote);
-                // $.createVote();
-            }else{
-                htm = "<h2 class='offset-1 my-5'>Encara no hi ha cap obra publicada! <br>¡¡SIGUES EL PRIMER!!</h2>";
-                $(out).html(htm);
             }
         }
     }
-
-    $.selectPosition = function () {
-        $("#adminTable tr td i.fa-square").click(function () {// admin number select
-            if ($(this).hasClass("squareclk")){
-                for (let c = 0; c < winers.length; c++) {
-                    if ($(this).hasClass("fa-square-"+(c+1))){
-                        $(this).removeClass("fa-solid fa-square-"+(c+1)+" squareclk").addClass("fa-light fa-square");
-                        winers[c] = false;
-                    }
-                }
-            }else{
-                for (let c = 0; c < winers.length; c++) {
-                    if (!winers[c]) {
-                        $(this).removeClass("fa-light fa-square").addClass("fa-solid fa-square-"+(c+1)+" squareclk");
-                        winers[c] = true;
-                        return;
-                    }
-                }
+    $.createVote = function() {// vote
+        $(".fa-light.fa-star-sharp").on("click", function () {
+            if (catvots[$(this).attr("cat")] < votar){
+                obra = $(this).attr("id");
+                $("#titolmodal").text("Confirmació del vot a l'obra '"+ $("#"+obra).attr("name") + "'");
+                $("#modalVot").modal("show");
             }
         });
     }
-    // $(".fa-star-sharp").hover(function () {// vote (NOT WORKING)
-    //     if (votar < 0){
-        //         if ($(this).hasClass("grey")){
-    //             $(this).css("cursor", "default");
-    //         }else{
-    //             $(this).css("cursor", "pointer;");
-    //         }
-    //     }
-    // }
-    // );
-    // $.createVote = function() {// vote (NOT WORKING)
-    //     $(".fa-light.fa-star-sharp").on("click", function () {
-    //         // console.log(votar);
-    //         if (votar > 0){
-    //             obra = $(this).attr("id");
-    //             if (!$(this).hasClass("grey")){
-    //                 $("#titolmodal").text("Confirmació del vot a l'obra '"+ $("#"+obra).attr("name") + "'");
-    //                 $("#modalVot").modal("show");
-    //             }
-    //         }
-    //     });
-    // }
     if (accio==1){// redirect vote artwork
         $("#btnvote").trigger("click");
     }
@@ -297,64 +265,4 @@ $(document).ready(function () {
         $("#btnupload").trigger("click");
         $(".menuObres").trigger("click");
     }
-    $("#adm").change(function () {// show admin tables
-        $.showAdminTables($("select option:selected").val());
-    });
-    $.disableObra = function(){
-        $(".fa-eye, .fa-eye-slash").click(function () {
-            if ($(this).hasClass("fa-eye")){
-                $(this).removeClass("fa-eye").addClass("fa-eye-slash");
-                $.ajax({
-                    data: {"op": "chvisibility","id": $(this).attr("id"), "data": 0},
-                    type: "post",
-                    url: "ajx/showobra.php",
-                    dataType: "json",
-                    success: function (response) {
-                    }
-                });
-             }else{
-                $(this).removeClass("fa-eye-slash").addClass("fa-eye");
-                $.ajax({
-                    data: {"op": "chvisibility","id": $(this).attr("id"), "data": 1},
-                    type: "post",
-                    url: "ajx/showobra.php",
-                    dataType: "json",
-                    success: function (response) {
-                    }
-                });
-            }
-        });
-    }
-    $.showAdminTables = function(categ) {
-        let response;
-        $.ajax({
-            data:  {"op": "obresxcat","idc": categ},
-            url:   'ajx/showobra.php',
-            type:  'post',
-            dataType: 'json',
-            async: false,
-            success:  function (response) {
-                if (!response) {
-                    $(".tableadm").html('<h2 class="my-5 text-center"><span class="offset-2">No hi han Obres!!!</span></h2>');
-                    return;
-                }
-                let htm = "<table class='table my-5' id='adminTable'><th class='col'><h2><b>Títol</b></h2></th><th><h2 class='col'><b>Obra</b></h2></th><th><h2 class='col'><b>Vots</b></h2></th><th><h2 class='col'><b>Podi</b></h2></th><th><h2 class='col'><b>Visible</b></h2></th>";
-                for (let c = 0; c < response.data.length; c++) {
-                    if (response.data[c].activa == 1) {
-                        htm += "<tr><td scope='row'><h2>"+response.data[c].titolobra+"</h2></td><td class='tdTable'><a href='"+response.data[c].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><h2>"+response.data[c].vots+"</h2></td><td class='tdTable square'><i id='"+response.data[c].idobra+"' name='"+response.data[c].titolobra+"' class='fa-light fa-square fa-3x'></i></td><td class='tdTable'><i id='"+response.data[c].idobra+"' class='fa-solid fa-eye fa-3x'></i></td></tr>";
-                    } else {
-                        htm += "<tr><td scope='row'><h2>"+response.data[c].titolobra+"</h2></td><td class='tdTable'><a href='"+response.data[c].nomfitxer+"' target='_blank'><i class='red fa-light fa-file-pdf fa-3x''></i></a></td><td class='tdTable'><h2>"+response.data[c].vots+"</h2></td><td class='tdTable square'><i id='"+response.data[c].idobra+"' name='"+response.data[c].titolobra+"' class='fa-light fa-square fa-3x'></i></td><td class='tdTable'><i id='"+response.data[c].idobra+"' class='fa-solid fa-eye-slash fa-3x'></i></td></tr>";
-                    }
-                }
-                htm += "</table>";
-                $(".tableadm").html(htm);
-                $.selectPosition();
-                for (let c = 0; c < winers.length; c++) {
-                     winers[c] = false;
-                }
-                $.disableObra();
-            }
-        });
-    }
-    $.showAdminTables($("select option:selected").val());
 });
