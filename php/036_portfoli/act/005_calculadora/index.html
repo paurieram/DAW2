@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+        <table id="calculadoraBasica">
+            <tr>
+                <td class="tdoperacio" colspan="4" id="" onclick="">
+                    <input class="ioperacio" id="text" type="text" value="0" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td id="" onclick="borrar()">C</td>
+                <td colspan="2" onclick="amagaMostrarInfo()">CIENTIFICA</td>
+                <td id="" onclick="operacio('+')">+</td>
+            </tr>
+            <tr>
+                <td id="" onclick="num(7)">7</td>
+                <td id="" onclick="num(8)">8</td>
+                <td id="" onclick="num(9)">9</td>
+                <td id="" onclick="operacio('-')">-</td>
+            </tr>
+            <tr>
+                <td id="" onclick="num(4)">4</td>
+                <td id="" onclick="num(5)">5</td>
+                <td id="" onclick="num(6)">6</td>
+                <td id="" onclick="operacio('*')">x</td>
+            </tr>
+            <tr>
+                <td id="" onclick="num(1)">1</td>
+                <td id="" onclick="num(2)">2</td>
+                <td id="" onclick="num(3)">3</td>
+                <td id="" onclick="operacio('/')">/</td>
+            </tr>
+            <tr>
+                <td id="" onclick="num(0)">0</td>
+                <td id="" onclick="num('.')">.</td>
+                <td id="" onclick="">+/-</td>
+                <td id="" onclick="operacio()">=</td>
+            </tr>
+        </table>
+        <table id="calculadoraCientifica" style="display: none;">
+            <tr>
+                <td id="" onclick="">ε</td>
+                <td id="" onclick="">п</td>
+                <td id="" onclick="">Ln 10</td>
+            </tr>
+            <tr>
+                <td id="" onclick="">Sinus</td>
+                <td id="" onclick="">Cosinus</td>
+                <td id="" onclick="">Tangent</td>
+            </tr>
+            <tr>
+                <td id="" onclick="">ASinus</td>
+                <td id="" onclick="">Secant</td>
+                <td id="" onclick="">Cotagent</td>
+            </tr>
+            <tr>
+                <td id="" onclick="">Arrod ↑</td>
+                <td id="" onclick="">Arrod →</td>
+                <td id="" onclick="">Arrod ↓</td>
+            </tr>
+            <tr>
+                <td id="" onclick="">Logaritme</td>
+                <td id="" onclick="">Xº</td>
+                <td id="" onclick="">√</td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+<script type="text/javascript" src="script.js"></script>
+
+</html>

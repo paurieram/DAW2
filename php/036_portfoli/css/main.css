@@ -474,6 +474,8 @@ iframe {
     opacity: 1;
   }
 }
-
+.hov1:hover {
+    color: #c87ef0;
+  }
 
 

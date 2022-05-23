@@ -1,0 +1,19 @@
+
+td {
+    padding: 30px;
+    border: 1px solid black;
+
+}
+
+.ioperacio {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.tdoperacio {
+    padding: 0px;
+}
+
+table {
+   display: inline; 
+}
