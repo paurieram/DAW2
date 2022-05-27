@@ -4,20 +4,20 @@
 
 # [HTML](https://github.com/paurigine/DAW2/tree/main/html)
 
-> Ex015
+> A015
 
 # [JAVASCRIPT](https://github.com/paurigine/DAW2/tree/main/jscript)
 
-> Ex024
+> A024
 
 # [LARAVEL](https://github.com/paurigine/DAW2/tree/main/laravel)
 
-> Ex004
+> A004
 
 # [NODE](https://github.com/paurigine/DAW2/tree/main/node)
 
-> Ex006
+> A006
 
 # [PHP](https://github.com/paurigine/DAW2/tree/main/php)
 
-> 040
+> A040
