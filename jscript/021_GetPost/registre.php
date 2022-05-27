@@ -1,4 +1,13 @@
 <?php 
-$JSON["text"] = "Nom:".isset($_REQUEST["name"])?$_REQUEST["name"]:"No s'ha rebut nom";
-$JSON["text"] .= "Mail:".isset($_REQUEST["email"])?$_REQUEST["email"]:"No s'ha rebut email";
+if ($_REQUEST["name"] != ""){
+    $JSON["nom"] = "Nom: ".$_REQUEST["name"];
+}else{
+    $JSON["nom"] = "Nom: No s'ha rebut nom";
+}
+if ($_REQUEST["email"] != ""){
+    $JSON["mail"] = "Mail: ".$_REQUEST["email"];
+}else{
+    $JSON["mail"] = "Mail: No s'ha rebut email";
+}
+$JSON["sc"] = 1;
 echo json_encode($JSON);

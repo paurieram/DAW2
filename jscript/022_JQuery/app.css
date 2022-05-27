@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* GENERAL STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  background: #fdfdfd;
+  line-height: 1.625;
+}
+
+h3, p, div {
+  text-align: center;
+}
+
+h3 {
+  text-transform: capitalize;
+}
+h3 span {
+  text-transform: none;
+}
+
+button {
+  display: block;
+  margin: 15px auto;
+}
+
+#bio {
+  max-width: 70%;
+  margin: 15px auto;
+  padding: 10px;
+}

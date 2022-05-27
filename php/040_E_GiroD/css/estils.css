@@ -1,0 +1,65 @@
+div.giro {
+      background-color: #ff286e69;
+      color: black;
+      border: black 2px solid;
+      font-size: 80%;
+      font-family: sans-serif;
+      margin: 10px;
+      padding: 0;
+    }
+
+    div.giro h1 {
+      background-color:#ff286e;
+      color: white;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 5px;
+      text-align: left;
+      font-size: 130%;
+    }
+
+    div.giro div.menu {
+      background-color: #8E2929;
+      color: white;
+      height: 2em;
+      margin: 0;
+    }
+
+    div.giro div.menu ul {
+      list-style-type: none;
+      margin: 0 5px;
+      padding: 5px;
+    }
+
+    div.giro div.menu li {
+      float: left;
+      padding: 0 15px;
+      clear: none;
+    }
+    
+    a {
+      color: white;
+      height: 2em;
+      margin: 0;
+      font-size: 15px;
+    }
+
+
+    div.giro div.contenido,  div.footer {
+      padding: 10px;
+      clear: both;
+    }
+
+    div.giro img {
+      border: none;
+    }
+
+    div.giro td,
+    div.giro th {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    div.giro th {
+      text-align: center;
+    }

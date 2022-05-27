@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ca" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"> 
+    <title id="titApp">Aplicació gestió Sanitària</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="./js/classes/Persona.js"></script>
+    <script src="./js/classes/Hospital.js"></script>
+    <script src="./js/classes/Metge.js"></script>
+    <script src="./js/classes/Pacient.js"></script>
+    <style>
+      .dark-mode{
+        background-color: black;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- INICI container -->
+    <div class="container">
+      <h1  class="text-center mt-3 mb-3" >Aplicació gestió Sanitària</h1>
+      <!-- ==================================================================================== -->  
+      <!-- INICI Missatge Modal -->
+      <div class="modal fade" id="divEspaiModal">
+        <!-- https://getbootstrap.com/docs/4.0/components/modal/ -->
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- INICI Modal capçalera -->
+            <div class="modal-header">
+              <h4 class="modal-title" id="titolModal">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <!-- FINAL Modal capçalera -->
+            <!-- INICI Modal part central -->
+            <div class="modal-body" id="missatgeModal">
+              Modal body..
+            </div>
+            <!-- FINAL Modal part central -->
+            <!-- INICI Modal peu de pàgina -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            <!-- FINAL Modal peu de pàgina -->
+          </div>
+        </div>
+      </div>
+      <!-- FINAL MissatgeModal -->
+      <!-- ==================================================================================== -->  
+      <!-- INICI barra de missatges -->
+      <div class="text-center mt-5 alert alert-danger alert-dismissibled d-none" id="divBarraMissatges">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><h3>&times;</h3></a>
+        <h3 id="h3BarraMissatges"></h3>
+      </div>
+      <!-- FINAL barra de missatges -->
+      <!-- ==================================================================================== -->  
+      <!-- ------------------------------------------------------------------------------------ -->
+      <!-- INICI FILA APP -->
+      <div class="row">
+        <!-- INICI COLUMNA 1 >md 02 < -- > bloc control equerre --> 
+        <div class="col-md-2" id="divPanellGestio">
+              <!-- INICI eleID_h4TitolPanell -->
+              <h4 class="text-center" id="h4TitolPanell">Panell de Gestió</h4> <!-- mt margin top = 5 -->
+              <!-- FINAL eleID_h4TitolPanell -->
+            <button type="button" title="Mostra Gestió de Hospitals" id="btnGestHospitals" class="btn btn-primary btn-block" onClick="mostraGestioHospital(this)"><i class="fa-regular fa-hospital"></i> Hospital</button>
+            <button type="button" title="Mostra Gestió de Pacients" id="btnGestPacients" class="btn btn-primary btn-block" onClick="mostraGestioPacients(this)"><i class="fa-regular fa-users-medical"></i> Pacients</button>
+            <button type="button" title="Mostra Gestió de Malalties" id="btnGestMalalties" class="btn btn-primary btn-block" onClick="mostraGestioMalaties(this)"><i class="fa-regular fa-virus"></i> Malalties</button>
+            <button type="button" title="Mostra Gestió de Metges" id="btnGestMetges" class="btn btn-primary btn-block" onClick="mostraGestioMetges()"><i class="fa-regular fa-user-doctor"></i> Metges</button>
+            <br>
+            <button type="button" title="Mostra Gestió de App" id="btnGestbtnGestAplicacio" class="btn btn-primary btn-block" onClick="mostraGestioApp()"><i class="fa-regular fa-rectangles-mixed"></i> Control</button>
+            <button type="button" title="+ Zoom" class="btn btn-primary btn-block" onClick="addzoom('1')"><i class="fa-regular fa-magnifying-glass-plus"></i> Zoom</button>
+            <button type="button" title="- Zoom" class="btn btn-primary btn-block" onClick="addzoom('2')"><i class="fa-regular fa-magnifying-glass-minus"></i> Zoom</button>
+            <button type="button" title="Dark Mode" class="btn btn-primary btn-block" onClick="darkmode()"><i class="fa-regular fa-circle-half-stroke"></i> Dark Mode</button>
+            <!-- <button type="button" class="btn btn-primary  btn-block" data-toggle="modal" data-target="#espaiModal">Open modal</button> -->
+        </div>
+        <!-- FINAL COLUMNA 1 >md 02 < -- > bloc control equerre -->
+        <!-- ==================================================================================== -->  
+        <!-- INICI COLUMNA 2 >md 10 < -- >  modul escriptori -->
+        <div class="col-md-10" id="divPanellEscriptori"> <!-- col-md-8  divPanellEscriptori -->
+          <!-- ------------------------------------------------------------------------------------ -->
+          <!-- INICI eleID_divPresentacio -->
+          <div class="w-100 mx-auto align-items-center border mt-8 mb-8 p-4 rounded shadow bg-white" id="divPresentacio">
+              <!-- mt margin top = 8    mt margin bottom = 8 -->
+              <h4  class="text-center mt-3 mb-3" >Benvigut a l'aplicació de gestió Sanitària</h4>
+              <p>Amb els botons del panell lateral, podràs accedir a tots els menus!</p>
+          </div>
+          <!-- FINAL eleID_divPresentacio -->
+          <!-- ------------------------------------------------------------------------------------ -->
+          <!-- INICI eleID_divHospital -->
+          <div class="w-100 mx-auto align-items-center border mt-8 mb-8 p-4 rounded shadow bg-white d-none" id="divHospital">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" id="tancaDivHospital"><h3>&times;</h3></a>
+            <h2 class="text-center">Gestió d'hospitals</h2>
+            <hr style="border: 2px solid green; border-radius: 10px;">
+            <p class="text-center">Introdueix les dades de l'hospital que vols crear:</p>
+            <hr style="border: 1px solid green; border-radius: 10px;">
+            <!-- INICI formIntroHospital -->
+            <div class="form-row" id="formIntroHospital">
+              <!-- INICI formIntroHospital_Nom -->
+              <div class="col mb-6" id="formIntroHospital_Nom">
+                <label for="nomHospital" class="font-weight-bold" > Nom: </label>
+                <input type="text" id="inputNomHospital" name="Nom"  title="Introdueix el nom de l'Hospital."
+                       class="form-control" required minlength="1" maxlength="100"
+                       onblur="comprovaCampBuit(this)" value="General de Catalunya">
+              </div>
+              <!-- FINAL formIntroHospital_Nom -->
+              <!-- INICI formIntroHospital_Llits -->
+              <div class="col mb-6" id="formIntroHospital_Llits">
+                <label for="maximPacients" class="font-weight-bold">Màxim de pacients que pot ingressar: </label>
+                <input type="number" id="maximPacientsHospital" name="maxPacHospital"
+                title="Introdueix el nombre màxim de pacients que té l'Hospital."
+                class="form-control" required min="0" max="100"
+                onblur="comprovaCampNumero(this)" value="2" />
+              </div>
+              <!-- FINAL div class="col -->
+            </div>
+            <!-- FINAL formIntroHospital -->
+            <!-- INICI botonsIntroHospital -->
+            <div class="text-center" id="botonsIntroHospital">
+              <hr style="border: 1px solid green; border-radius: 10px;">
+              <button title="Crear Hospital" type="button" class="btn btn-primary mt-4" onClick="crearHospital()">Crear</button>
+              <!-- <button type="button" class="btn btn-primary mt-4" onClick="ocultaGestioHospital(this)">Torna</button> -->
+            </div>
+            <!-- FINAL botonsIntroHospital -->
+          </div>
+          <!-- FINAL eleID_divHospital -->
+          <!-- ------------------------------------------------------------------------------------ -->
+          <!-- INICI divPacients -->
+          <div class="w-100 mx-auto align-items-center border mt-8 mb-8 p-4 rounded shadow bg-white d-none" id="divPacient">
+             <!-- w-100  = width: 100% -->
+            <h2 class="text-center">Pacients</h2>
+            <p class="text-center">Introdueix les dades del pacients que vols ingressar:</p>
+            <div id="dadesPacient"></div>
+            <div class="text-center">
+              <button title="Ingressar Pacients" type="button" class="btn btn-primary mt-4" onClick="ingressarPacients()">Ingressar</button>
+              <button title="Oculta Gestió Pacients" type="button" class="btn btn-primary mt-4" onClick="ocultaGestioPacients(this)">Torna</button>
+            </div>
+          </div>
+          <!-- FINAL divPacients -->
+          <!-- ------------------------------------------------------------------------------------ -->
+          <!-- INICI divTractament -->
+          <div class="w-100 mx-auto align-items-center border border-primary p-4 rounded shadow bg-white d-none" id="divTractament">
+            <!-- <h2 class="text-center">Hospital: <span id="nomHospitalGestio"></span></h2> -->
+            <h2 class="text-center">Pacients en tractament:</h2>
+            <!-- <p class="text-center">Pacients en tractament:</p> -->
+            <div id="dadesGestio"></div>
+          </div>
+          <!-- FINAL divTractament -->
+          <!-- ------------------------------------------------------------------------------------ -->
+          <!-- INICI divControls -->
+          <div class="w-100 mx-auto align-items-center border mt-8 mb-8 p-4 rounded shadow bg-white  d-none" id="divControls">
+            <!-- mt margin top = 8    mt margin bottom = 8 -->
+            <h4  class="text-center mt-3 mb-3" >Control de l'aplicació</h4>
+            <div class="form-row" id="formControls">
+              <div class="text-center">
+                <button title="Comprovacio General" type="button" class="btn btn-primary mt-4" onClick="comprovacioInicial()" id="btnCheck">Check</button>
+                <button title="Error 404" type="button" class="btn btn-primary mt-4" onClick="mostraNotFoud()" id="btnMostra404">Mostra error 404</button>
+                <button title="Oculta Controls" type="button" class="btn btn-primary mt-4" onClick="ocultaControls(this)">Torna</button>
+              </div>
+            </div>
+            <div class="form-row" id="formControls">
+              <div class="text-center">
+                <h2 class="text-center" id="h2ResutltatFormControls"></h2>
+              </div>
+            </div>
+          </div>
+          <!-- FINAL divControls -->
+        <!-- ------------------------------------------------------------------------------------ -->
+        <!-- ==================================================================================== -->   
+        </div>
+        <!-- INICI COLUMNA 2 >md 10 < -- >  modul divPanellEscriptori -->
+        <!-- FINAL modul escriptori -->
+      </div>
+      <!-- FINAL FILA APP -->
+    </div>
+    <!-- FINAL container -->
+    <script src="./js/dadesMalalties.js" id="dadesMalaltiesJs"></script>
+    <script src="./js/comprovacions.js" id="comprovacionsJs"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      $(document).ready(function () {
+      document.querySelector('body').addEventListener('click', (e) => {
+        const utterance = new SpeechSynthesisUtterance(e.target.title);
+        speechSynthesis.speak(utterance);
+      });
+      });
+        function addzoom(i){ 
+          $("body, h1, h2, h3, h4").each(function(){
+            if(i == 1){
+              $(this).css("font-size", parseFloat($(this).css("font-size"))*1.1);
+            }else if (i == 2){
+              $(this).css("font-size", parseFloat($(this).css("font-size"))*0.9);
+            }
+          });
+        }
+        function darkmode() {
+          var ele = document.body;
+          ele.classList.toggle("dark-mode");
+          var ele2 = document.div;
+          ele2.classList.toggle("dark-mode");
+        }
+    </script>
+  </body>
+</html>
