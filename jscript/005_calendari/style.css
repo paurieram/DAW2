@@ -1,0 +1,43 @@
+table {
+    text-align: center;
+    margin: 0 auto;
+    width: 50rem;
+    height: 15rem;
+}
+
+td, th {
+    width: 100px;
+}
+
+input {
+    margin: 10px;
+}
+
+/*Colors dies setmana*/
+.diaSetmana {
+    background-color: rgb(110, 196, 236);
+}
+
+.diaCapSetmana {
+    background-color: rgb(243, 47, 47);
+}
+
+.diaActual {
+    background-color: green;
+}
+
+.titolsDiesSetmana {
+    background-color: grey;
+}
+
+/* #divManageMsg {
+    text-align: center;
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 50rem;
+    height: 15rem;
+} */
+
+#msg {
+    width: 500px;
+}
