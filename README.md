@@ -1,6 +1,6 @@
 # DAW2
 
-> Feines 2021-22
+> 2021-22
 
 # [HTML](https://github.com/paurigine/DAW2/tree/main/html)
 
